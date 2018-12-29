@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.beans.RepairDetail" />
+
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/title_repairs"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.qixiu.lejia.widget.BitmapTimelineView
+                    android:id="@+id/submit_timeline"
+                    android:layout_width="?android:listPreferredItemHeight"
+                    android:layout_height="match_parent"
+                    app:timeline_lineColor="@color/grey_400"
+                    app:timeline_lineStyle="linear"
+                    app:timeline_lineWidth="0.5dp"
+                    app:timeline_type="start" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="已提交"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="56dp"
+                    android:text="@{item.submitTime}"
+                    tools:text="2018/3/30 12:35" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.qixiu.lejia.widget.BitmapTimelineView
+                    android:id="@+id/allot_timeline"
+                    android:layout_width="?android:listPreferredItemHeight"
+                    android:layout_height="match_parent"
+                    app:timeline_lineColor="@color/grey_400"
+                    app:timeline_lineStyle="linear"
+                    app:timeline_lineWidth="0.5dp"
+                    app:timeline_type="middle" />
+
+                <TextView
+                    android:id="@+id/allot_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="已分配"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="56dp"
+                    android:text="@{item.allotTime}"
+                    tools:text="2018/3/30 12:35" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.qixiu.lejia.widget.BitmapTimelineView
+                    android:id="@+id/done_timeline"
+                    android:layout_width="?android:listPreferredItemHeight"
+                    android:layout_height="match_parent"
+                    app:timeline_lineColor="@color/grey_400"
+                    app:timeline_lineStyle="linear"
+                    app:timeline_lineWidth="0.5dp"
+                    app:timeline_type="end" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/done"
+                        style="@style/Button.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="完成"
+                        android:textColor="@color/white" />
+
+                    <LinearLayout
+                        android:id="@+id/done_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="已完成"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="56dp"
+                            android:text="@{item.doneTime}"
+                            tools:text="2018/3/30 12:35" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@drawable/divider_horizontal"
+                    android:orientation="vertical"
+                    android:showDividers="middle">
+
+                    <RelativeLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="?listPreferredItemHeight">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="服务项目"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="@{item.serviceProject}"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="16sp"
+                            tools:text="报修" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="?listPreferredItemHeight">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="客户姓名"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="@{item.name}"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="16sp"
+                            tools:text="赵日天" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="?listPreferredItemHeight">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="手机号"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="@{item.phone}"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="16sp"
+                            tools:text="123456789" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="?listPreferredItemHeight">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="房间号"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <TextView
+                            android:id="@+id/room_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="@{item.address}"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="16sp"
+                            tools:text="武大蓝鸟" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Layout.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical"
+                    android:text="问题描述"
+                    android:textColor="@color/textColorSecondary" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginStart="32dp"
+                    android:background="@drawable/bg_edit_repair"
+                    android:minHeight="?listPreferredItemHeightLarge"
+                    android:padding="10dp"
+                    android:text="@{item.desc}"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="16sp"
+                    tools:text="灯坏了" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</layout>

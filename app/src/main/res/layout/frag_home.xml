@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <!--<android.support.v7.widget.Toolbar-->
+    <!--android:id="@id/toolbar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@color/white"-->
+    <!--android:elevation="1dp"-->
+    <!--android:minHeight="?attr/actionBarSize"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent">-->
+
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_gravity="start|center_vertical"-->
+    <!--android:background="?attr/selectableItemBackgroundBorderless"-->
+    <!--android:gravity="center"-->
+    <!--android:text="武汉"-->
+    <!--android:textColor="@color/textColorPrimary"-->
+    <!--android:textSize="18sp" />-->
+
+
+    <!--<ImageButton-->
+    <!--android:id="@+id/message"-->
+    <!--android:layout_width="48dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_gravity="end|center_vertical"-->
+    <!--android:background="?attr/selectableItemBackgroundBorderless"-->
+    <!--android:src="@drawable/ic_home_message"-->
+    <!--tools:ignore="ContentDescription" />/>-->
+    <!--</android.support.v7.widget.Toolbar>-->
+
+    <RelativeLayout
+        android:id="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_gravity="start|center_vertical"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:text="武汉"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="18sp" />
+
+
+        <ImageButton
+            android:layout_marginRight="@dimen/margin5dp"
+            android:id="@+id/message"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_home_message" />/>
+    </RelativeLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="8sp"
+        android:id="@+id/no_read"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/complaint_red_point"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+
+</android.support.constraint.ConstraintLayout>

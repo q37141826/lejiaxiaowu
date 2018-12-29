@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.qixiu.lejia.core.me.sign.MyElectictPayActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="@dimen/margin40dp"
+            android:layout_margin="@dimen/margin3dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/margin80dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="充值金额"
+                android:textColor="@color/textColorPrimary" />
+
+            <EditText
+                android:background="@color/white"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:hint="请输入充值金额"
+                android:textColor="@color/textColorPrimary" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnCharge"
+            style="@style/Button.Default"
+            android:layout_alignParentBottom="true"
+            android:text="立即缴费" />
+    </LinearLayout>
+
+</RelativeLayout>

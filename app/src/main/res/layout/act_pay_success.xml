@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".core.sign.PaySuccessAct">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/ic_pay_success"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="您已支付成功，请尽快前往门店签订合同办理入住。"
+        android:textColor="@color/textColorSecondary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:text="喜欢就给个好评呗~"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="16sp" />
+
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:numStars="5"
+        android:rating="5"
+        android:stepSize="1"
+        android:theme="@style/RatingBar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/divider_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="您还可以"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="128dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_pay_success"
+                android:gravity="center"
+                android:onClick="startSigned"
+                android:text="查看签约详情"
+                android:textColor="@color/textColorPrimary" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="128dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_pay_success"
+                android:gravity="center"
+                android:onClick="startContact"
+                android:text="联系管家"
+                android:textColor="@color/textColorPrimary" />
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="温馨提示：为了给您提供更好的服务，请您在工作时9:00-18:00 联系您的个人管家哦~"
+        android:textColor="@color/textColorSecondary" />
+
+</LinearLayout>

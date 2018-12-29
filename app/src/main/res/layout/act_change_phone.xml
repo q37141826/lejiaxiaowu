@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingBottom="32dp">
+
+            <TextView
+                android:id="@+id/text_phone"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:gravity="center_horizontal"
+                android:paddingEnd="12dp"
+                android:textColor="@color/textColorPrimary"
+                android:paddingStart="12dp"
+                android:text="@string/chang_phone"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_sex" />
+
+            <EditText
+                android:id="@+id/edit_code"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:drawablePadding="12dp"
+                android:gravity="center_horizontal"
+                android:hint="@string/sign_hint_code"
+                android:inputType="number"
+                android:maxLength="6"
+                android:paddingEnd="12dp"
+                android:paddingStart="12dp"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_phone" />
+
+            <TextView
+                android:id="@+id/btn_code"
+                android:layout_width="90dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/login_btn_code2"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/login_get_code"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_code" />
+
+            <Button
+                android:id="@+id/next"
+                style="@style/Button.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="90dp"
+                android:text="下一步"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_code" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="info"
+            type="com.qixiu.lejia.beans.CorporateSignFifthInfo" />
+
+        <variable
+            name="room"
+            type="com.qixiu.lejia.beans.Room" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/pay"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="@string/sign_pay_now"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/pay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.qixiu.lejia.widget.StepView
+                    android:id="@+id/step_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    app:sv_current_step="3"
+                    app:sv_steps="@array/corporate_steps" />
+
+                <include
+                    layout="@layout/item_room"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:item="@{room}" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="租期开始时间"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/start_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@{info.startDate}"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="20sp"
+                        tools:text="2018年3月24日" />
+
+                    <LinearLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="租 期"
+                            android:textColor="@color/textColorSecondary" />
+
+
+                        <TextView
+                            android:id="@+id/lease"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.5"
+                            android:text="@{info.endtDate}"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="15sp"
+                            tools:text="3个月" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="签约方式"
+                            android:textColor="@color/textColorSecondary" />
+
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.5"
+                            android:text="@{info.signMode}"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="15sp"
+                            tools:text="企业支付月租" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="支付方式"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <RadioGroup
+                            android:id="@+id/pay_ways"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.5"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/wx_pay"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/wx" />
+
+                            <RadioButton
+                                android:id="@+id/alipay"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="true"
+                                android:text="@string/alipay" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="首次支付"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <TextView
+                            android:id="@+id/first_pay"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.5"
+                            android:text="@{@string/fmt_yuan(info.firstPay)}"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="15sp"
+                            tools:text="2650元" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="其余每次支付"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <TextView
+                            android:id="@+id/monthly_pay"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.5"
+                            android:text="@{@string/fmt_month_pay(info.monthlyPay)}"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="15sp"
+                            tools:text="1200元/月" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/pay_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/sign_pay_details"
+                        android:textColor="@color/colorAccent" />
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

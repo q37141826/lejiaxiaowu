@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.items.PayDetailsCaptionItem" />
+
+    </data>
+
+    <RelativeLayout
+        style="@style/Layout.Padding"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:drawablePadding="8dp"
+            android:drawableStart="@drawable/section_rect"
+            android:gravity="center"
+            android:text="@{item.title}"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="16sp"
+            tools:text="首次款项" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="@{item.money}"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="17sp"
+            tools:text="4900元" />
+
+    </RelativeLayout>
+
+</layout>

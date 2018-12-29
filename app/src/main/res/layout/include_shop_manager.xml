@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/manager_avatar"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/test_manager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/manager_intro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/textColorSecondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/manager_avatar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="微笑挂在脸上，服务记在心里。您的满意是我们服务的目标，只为为您提供最优质、最贴心、最高效的服务。" />
+
+
+    <TextView
+        android:id="@+id/manager_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:drawablePadding="6dp"
+        android:drawableStart="@drawable/ic_mannager_phone"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/manager_avatar"
+        app:layout_constraintStart_toEndOf="@+id/manager_avatar"
+        tools:text="18202717201" />
+
+    <TextView
+        android:id="@+id/manager_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/manager_phone"
+        app:layout_constraintStart_toEndOf="@+id/manager_avatar"
+        tools:text="Syrena" />
+
+</android.support.constraint.ConstraintLayout>

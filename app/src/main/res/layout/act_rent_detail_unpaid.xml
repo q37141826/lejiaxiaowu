@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="com.qixiu.lejia.common.PayUtils" />
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.beans.RentDetail" />
+
+        <variable
+            name="actionHandler"
+            type="com.qixiu.adapter.ItemActionHandler" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:paddingBottom="48dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="24dp"
+                    android:drawablePadding="6dp"
+                    android:drawableStart="@drawable/ic_rent"
+                    android:text="@string/service_rent"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:text="@{@string/fmt_yuan(item.total)}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="@color/colorAccent"
+                    tools:text="19800元" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/white"
+                    android:divider="@drawable/divider_offset_start_16"
+                    android:orientation="vertical"
+                    android:showDividers="middle">
+
+                    <RelativeLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/room_owner"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="@{item.owner}"
+                            android:textColor="@color/textColorPrimary"
+                            tools:ignore="RelativeOverlap"
+                            tools:text="叮铃" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/rent"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="@{@string/fmt_yuan(item.rent)}"
+                            android:textColor="@color/textColorPrimary"
+                            tools:ignore="RelativeOverlap"
+                            tools:text="1650元" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/wuye"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="@{item.wuYe}"
+                            android:textColor="@color/textColorPrimary"
+                            tools:ignore="RelativeOverlap"
+                            tools:text="250" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLateFee"
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/late_fee"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="@{item.lateFee}"
+                            android:textColor="@color/textColorPrimary"
+                            tools:ignore="RelativeOverlap"
+                            tools:text="10" />
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/relative_discount"
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/discount"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="@{item.pa_reduce_money}"
+                            android:textColor="@color/textColorPrimary"
+                            tools:ignore="RelativeOverlap"
+                            tools:text="0" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/white"
+                    android:divider="@drawable/divider_offset_start_16"
+                    android:orientation="vertical"
+                    android:showDividers="middle">
+
+                    <RelativeLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:onClick="@{v -> actionHandler.onItemClick(0)}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/pay_way"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <ImageView
+                            android:id="@+id/more"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_more"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:id="@+id/pay_ways"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="4dp"
+                            android:layout_toStartOf="@+id/more"
+                            android:text="@string/alipay"
+                            android:textColor="@color/textColorPrimary"
+                            tools:ignore="RelativeOverlap" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/month_of_pay"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:text="@{@string/fmt_yuan(item.total)}"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="16sp"
+                            tools:ignore="RelativeOverlap"
+                            tools:text="1910.00元" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <TextView
+            android:id="@+id/textViewGotoPay"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:onClick="@{v -> actionHandler.onItemClick(1)}"
+            android:text="@string/service_pay_now"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+</layout>

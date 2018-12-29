@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.qixiu.widget.MultiStateLayout
+        android:id="@+id/multi_state_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="300dp"
+        android:theme="@style/AppCompatWidget"
+        app:empty_view="@layout/abc_load_completed"
+        app:error_view="@layout/abc_load_fail"
+        app:loading_view="@layout/abc_loading"
+        app:view_state="loading">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.qixiu.widget.MultiStateLayout>
+
+
+</android.support.constraint.ConstraintLayout>

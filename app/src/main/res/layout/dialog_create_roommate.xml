@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/auth_icon_name"
+            android:hint="请输入您室友的姓名"
+            android:inputType="text"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp"
+            android:textSize="15sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="32dp"
+            android:paddingStart="32dp">
+
+            <EditText
+                android:id="@+id/edit_sex"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:drawablePadding="12dp"
+                android:drawableStart="@drawable/auth_icon_sex"
+                android:enabled="false"
+                android:paddingEnd="12dp"
+                android:paddingStart="12dp"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="44dp"
+                android:drawableEnd="@drawable/ic_down"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="男"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="15sp" />
+
+        </FrameLayout>
+
+        <EditText
+            android:id="@+id/edit_id"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/auth_icon_id"
+            android:hint="请输入您室友的身份证号码"
+            android:inputType="text"
+            android:maxLength="18"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edit_phone"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/auth_icon_phone"
+            android:hint="请输入您室友的手机号码"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="70dp">
+
+            <TextView
+                android:id="@+id/cancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/btn_roommate_cancel"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/submit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:text="提交"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/service_project"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginEnd="34dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="16dp"
+            android:drawableEnd="@drawable/ic_more"
+            android:gravity="center_vertical"
+            android:onClick="onSelectServiceProject"
+            android:text="服务项目"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="34dp"
+            android:layout_marginStart="34dp"
+            android:background="@color/grey_300" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="6dp"
+            android:textColorHint="@color/textColorPrimary">
+
+            <EditText
+                android:id="@+id/edit_name"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:gravity="center_vertical"
+                android:hint="客户姓名"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:textColorHint="@color/textColorPrimary">
+
+            <EditText
+                android:id="@+id/edit_phone"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:gravity="center_vertical"
+                android:hint="手机号"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:paddingEnd="34dp"
+            android:paddingStart="34dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:enabled="false"
+                android:maxLines="2"
+                android:text="房间号"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/room_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/textColorSecondary"
+                tools:text="乐家小屋第一季" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/grey_300" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="16dp"
+            android:text="问题描述"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="16sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="34dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="16dp">
+
+            <EditText
+                android:id="@+id/edit_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edit_repair"
+                android:gravity="start"
+                android:hint="请简单描述一下您遇到的问题"
+                android:inputType="textMultiLine"
+                android:maxLength="300"
+                android:minLines="5"
+                android:paddingBottom="16dp"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/words"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginBottom="4dp"
+                android:text="300字以内" />
+
+        </FrameLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/image_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="16dp"
+            android:text="0/9"
+            android:textColor="@color/red" />
+
+        <Button
+            style="@style/Button.Default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:onClick="submit"
+            android:text="提交" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

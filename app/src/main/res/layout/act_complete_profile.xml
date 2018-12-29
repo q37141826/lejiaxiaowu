@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingBottom="32dp">
+
+            <EditText
+                android:id="@+id/edit_name"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:drawablePadding="12dp"
+                android:drawableStart="@drawable/auth_icon_name"
+                android:hint="@string/sign_hint_name"
+                android:inputType="text"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:paddingEnd="12dp"
+                android:paddingStart="12dp"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edit_phone"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:drawablePadding="12dp"
+                android:drawableStart="@drawable/auth_icon_phone"
+                android:hint="@string/sign_hint_phone"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:paddingEnd="12dp"
+                android:paddingStart="12dp"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_name" />
+
+            <EditText
+                android:id="@+id/edit_sex"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:drawablePadding="12dp"
+                android:drawableStart="@drawable/auth_icon_sex"
+                android:enabled="false"
+                android:paddingEnd="12dp"
+                android:paddingStart="12dp"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_phone" />
+
+            <TextView
+                android:id="@+id/sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="43dp"
+                android:drawableEnd="@drawable/ic_down"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="男"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/edit_id"
+                app:layout_constraintStart_toStartOf="@+id/edit_sex"
+                app:layout_constraintTop_toTopOf="@+id/edit_sex" />
+
+
+            <EditText
+                android:id="@+id/edit_id"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:drawablePadding="12dp"
+                android:drawableStart="@drawable/auth_icon_id"
+                android:hint="@string/sign_hint_id"
+                android:inputType="text"
+                android:maxLength="18"
+                android:paddingEnd="12dp"
+                android:paddingStart="12dp"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_sex" />
+
+            <EditText
+                android:id="@+id/edit_code"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:drawablePadding="12dp"
+                android:drawableStart="@drawable/auth_icon_code"
+                android:hint="@string/sign_hint_code"
+                android:inputType="number"
+                android:maxLength="6"
+                android:paddingEnd="12dp"
+                android:paddingStart="12dp"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_id" />
+
+            <TextView
+                android:id="@+id/btn_code"
+                android:layout_width="90dp"
+                android:layout_height="36dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/login_btn_code"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/login_get_code"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/edit_code"
+                app:layout_constraintEnd_toEndOf="@+id/edit_code" />
+
+            <Button
+                android:id="@+id/next"
+                style="@style/Button.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="保存"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_code" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

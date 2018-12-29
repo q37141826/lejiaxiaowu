@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.qixiu.lejia.core.service.bill.BillHistoryItem" />
+
+        <import type="com.qixiu.lejia.common.PayUtils" />
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.core.service.bill.BillHistoryItem" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_marginRight="@dimen/margin10dp"
+        android:layout_marginLeft="@dimen/margin10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/margin10dp"
+        android:paddingBottom="10dp">
+        <!--android:background="@{BillHistoryItem.getBackRes(item.ex)}"-->
+
+        <ImageView
+            android:id="@+id/icon"
+            bindDrawableRes="@{BillHistoryItem.bindIcon(item.ex)}"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/ic_rent" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{item.ex.typeText}"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/icon"
+            tools:text="水费--充值" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@{@string/fmt_bill_sum(item.ex.sum)}"
+            android:textColor="@color/color_bill_state_arrearage"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="￥50.00" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{@string/fmt_pay_way(PayUtils.getPayWay(item.ex.payWay))}"
+            android:textColor="@color/textColorPrimary"
+            app:layout_constraintStart_toStartOf="@+id/textView22"
+            app:layout_constraintTop_toBottomOf="@+id/textView22"
+            tools:text="[支付宝]" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{item.ex.datetime}"
+            app:layout_constraintStart_toStartOf="@+id/textView24"
+            app:layout_constraintTop_toBottomOf="@+id/textView24"
+            tools:text="03-16 14:25" />
+        <TextView
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:paddingRight="@dimen/margin6dp"
+            android:paddingLeft="@dimen/margin6dp"
+            android:textSize="12sp"
+            android:layout_marginRight="@dimen/margin20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView23"
+            android:background="@drawable/shape_btn_orange_small"
+            android:textColor="@color/white"
+            android:text="查看详情"
+            style="@style/normal_text" />
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

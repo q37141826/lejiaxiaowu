@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#0000"
+    android:orientation="vertical">
+
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="16dp"-->
+    <!--android:layout_marginEnd="16dp"-->
+    <!--android:layout_marginStart="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:text="@string/make_call"-->
+    <!--android:textAppearance="@style/TextAppearance.AppCompat.Title" />-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false" />
+
+
+    <TextView
+        android:id="@+id/dismiss"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorAccent"
+        android:clickable="true"
+        android:gravity="center"
+        android:paddingEnd="@dimen/activity_padding"
+        android:paddingStart="@dimen/activity_padding"
+        android:text="取消"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+</LinearLayout>

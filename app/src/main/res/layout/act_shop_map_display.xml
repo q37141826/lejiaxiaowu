@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.qixiu.widget.MultiStateLayout
+        android:id="@+id/multi_state_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:empty_view="@layout/abc_load_completed"
+        app:error_view="@layout/abc_load_fail"
+        app:loading_view="@layout/abc_loading"
+        app:view_state="loading">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--地图-->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <com.amap.api.maps.MapView
+                    android:id="@+id/map"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/activity_padding"
+                android:paddingTop="@dimen/activity_padding">
+
+                <!--门店-->
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="0dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.qixiu.widget.MultiStateLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/Toolbar.NoElevation"
+            android:background="@android:color/transparent" />
+
+    </FrameLayout>
+
+</FrameLayout>

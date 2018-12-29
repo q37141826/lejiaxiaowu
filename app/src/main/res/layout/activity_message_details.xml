@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_200"
+    tools:context="com.qixiu.lejia.core.me.message.MessageDetailsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin10dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/margin20dp"
+        android:paddingLeft="@dimen/margin10dp"
+        android:paddingRight="@dimen/margin10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin40dp"
+            android:layout_marginTop="@dimen/margin10dp">
+
+            <TextView
+                android:id="@+id/textViedw_title_messageDetails"
+                style="@style/normal_text"
+                android:layout_centerVertical="true"
+                android:text="乐家助手" />
+
+            <TextView
+                android:id="@+id/textview_time_messageDetails"
+                style="@style/normal_text"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin0.5dp"
+            android:background="@color/grey_200"></View>
+
+        <TextView
+            android:id="@+id/textView_content_message_details"
+            style="@style/normal_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:text="这个是正文" />
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/margin10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+            <TextView
+                android:text="工作人员联系方式："
+                style="@style/normal_text"
+                />
+            <TextView
+                android:id="@+id/textView_phone_messageDetails"
+                android:textColor="@color/orange"
+                android:text="13000000000"
+                style="@style/normal_text"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

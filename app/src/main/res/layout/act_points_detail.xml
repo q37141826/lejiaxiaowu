@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:drawablePadding="4dp"
+        android:drawableStart="@drawable/fuck_points_lead"
+        android:gravity="center_vertical"
+        android:paddingEnd="@dimen/activity_padding"
+        android:paddingStart="@dimen/activity_padding"
+        android:text="@string/got_get_points"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

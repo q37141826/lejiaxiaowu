@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.core.home.HomeGuaranteeItem" />
+
+        <variable
+            name="actionHandler"
+            type="com.qixiu.lejia.core.home.HomeItemActionHandler" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="vertical">
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/home_guarantee"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="18sp" />
+
+
+        <LinearLayout
+            android:id="@+id/icons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:divider="@drawable/home_guarantee_divider"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="4dp"
+                android:drawableTop="@drawable/home_guarantee_icon1"
+                android:gravity="center"
+                android:onClick="@{v -> actionHandler.onStartHouseExplain(item)}"
+                android:text="@string/guarantee1"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="4dp"
+                android:drawableTop="@drawable/home_guarantee_icon2"
+                android:gravity="center"
+                android:onClick="@{v -> actionHandler.onStartFurnitureExplain(item)}"
+                android:text="@string/guarantee2"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="4dp"
+                android:drawableTop="@drawable/home_guarantee_icon3"
+                android:gravity="center"
+                android:onClick="@{v -> actionHandler.onStartSocialExplain(item)}"
+                android:text="@string/guarantee3"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/explain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:text="@string/home_guarantee_text1"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:text="@string/home_guarantee_text2"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:text="@string/home_guarantee_text3"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="10sp"
+                tools:ignore="SmallSp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_top"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorDivider" />
+
+        <com.qixiu.widget.BannerView
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="156.5dp"
+            android:layout_marginTop="16dp"
+            app:banner_auto_loop="true"
+            app:banner_delay="3000"
+            app:pages="@{item.banners}" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorDivider" />
+
+    </LinearLayout>
+
+</layout>

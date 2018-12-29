@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    tools:context=".core.login.LoginActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/backdrop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/login_backdrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="78dp"
+            android:src="@drawable/login_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+
+        <EditText
+            android:id="@+id/edit_phone"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="8dp"
+            android:drawableStart="@drawable/login_icon_phone"
+            android:gravity="center_vertical"
+            android:hint="@string/login_hint_phone"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/backdrop" />
+
+        <EditText
+            android:id="@+id/edit_code"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="8dp"
+            android:drawableStart="@drawable/login_icon_code"
+            android:gravity="center_vertical"
+            android:hint="@string/login_hint_code"
+            android:inputType="number"
+            android:maxLength="6"
+            android:minEms="4"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_phone" />
+
+        <TextView
+            android:id="@+id/btn_code"
+            android:layout_width="90dp"
+            android:layout_height="36dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/login_btn_code"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/login_get_code"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/edit_code"
+            app:layout_constraintEnd_toEndOf="@+id/edit_code" />
+
+        <Button
+            android:id="@+id/login"
+            style="@style/Button.Default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:onClick="login"
+            android:text="@string/login_sign_in"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_code" />
+
+        <TextView
+            android:id="@+id/third_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:drawableEnd="@drawable/login_line"
+            android:drawablePadding="8dp"
+            android:drawableStart="@drawable/login_line"
+            android:text="@string/login_third_way"
+            android:textColor="@color/textColorSecondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="16dp"
+            android:background="@null"
+            android:onClick="loginWithQQ"
+            android:src="@drawable/login_qq"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/third_login"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:background="@null"
+            android:onClick="loginWithWx"
+            android:src="@drawable/login_wx"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/third_login"
+            tools:ignore="ContentDescription" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

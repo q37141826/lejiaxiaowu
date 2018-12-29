@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.qixiu.lejia.common.PayUtils" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="resp"
+            type="com.qixiu.lejia.beans.WECostDetail" />
+
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin15dp"
+                android:background="@drawable/shape_white_cornor"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="14dp"
+                    android:drawablePadding="6dp"
+                    android:drawableTop="@drawable/ic_power"
+                    android:text="@string/power_cost"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="18sp" />
+
+                <RelativeLayout
+                    style="@style/Layout.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/service_rent"
+                        android:textColor="@color/textColorSecondary"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@{@string/fmt_yuan(resp.sum)}"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="￥1900" />
+
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/normal_text"
+                    android:layout_marginLeft="@dimen/margin15dp"
+                    android:text="已缴"
+                    android:textSize="13sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin15dp"
+                    android:paddingBottom="@dimen/margin5dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/normal_text"
+                            android:text="账单周期"
+                            android:textSize="13sp" />
+
+                        <TextView
+
+                            style="@style/normal_text"
+                            android:text="@{resp.hy_cycle}" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/margin15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/normal_text"
+                            android:text="最后还款日"
+                            android:textSize="13sp" />
+
+                        <TextView
+
+                            style="@style/normal_text"
+                            android:text="@{resp.hy_endtime}" />
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin15dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:background="@drawable/shape_white_cornor"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    style="@style/Layout.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/power_cost"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@{@string/fmt_yuan(resp.sum)}"
+                        android:textColor="@color/colorAccent"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="200" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    style="@style/Layout.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/room_owner"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@{resp.owner}"
+                        android:textColor="@color/colorAccent"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="叮铃" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    style="@style/Layout.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/start_count"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@{resp.lastCount}"
+                        android:textColor="@color/colorAccent"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="134" />
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    style="@style/Layout.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/start_count_date"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@{resp.startCountDate}"
+                        android:textColor="@color/colorAccent"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="2018/3/15" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    style="@style/Layout.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/end_count"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@{resp.currentCount}"
+                        android:textColor="@color/colorAccent"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="156" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    style="@style/Layout.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/end_count_date"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@{resp.endCountDate}"
+                        android:textColor="@color/colorAccent"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="2018/4/15" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    style="@style/Layout.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/power_cost_price"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@{@string/fmt_electricity_price(resp.price)}"
+                        android:textColor="@color/colorAccent"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="2.2元/度" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLateFee"
+                    style="@style/Layout.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/late_fee"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text='@{TextUtils.isEmpty(resp.lateFee) ? "0" : resp.lateFee}'
+                        android:textColor="@color/colorAccent"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="0" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    style="@style/Layout.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/owed"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text='@{TextUtils.isEmpty(resp.owed) ? "0" : @string/fmt_electricity_owed(resp.owed)}'
+                        android:textColor="@color/colorAccent"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="-12度" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:id="@+id/relative_discount"
+                    style="@style/Layout.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/discount"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@{resp.hy_reduce_money}"
+                        android:textColor="@color/colorAccent"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="0" />
+
+                </RelativeLayout>
+                <!--<RelativeLayout
+                    style="@style/Layout.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="是否平摊"
+                        android:textColor="@color/textColorSecondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="是"
+                        android:textColor="@color/textColorPrimary" />
+
+                </RelativeLayout>-->
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:padding="@dimen/margin15dp"
+                android:layout_marginRight="@dimen/margin15dp"
+                android:layout_marginLeft="@dimen/margin15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/shape_white_cornor"
+                android:orientation="vertical"
+                android:showDividers="middle">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="账单生成时间"
+                        android:textColor="@color/textColorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="13sp"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="@{resp.hy_createtime}" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/pay_datetime"
+                        android:textColor="@color/textColorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@{resp.paidDate}"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="16sp"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="2018/10/21" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/pay_way"
+                        android:textColor="@color/textColorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="4dp"
+                        android:text="@{PayUtils.getPayWay(resp.payWay)}"
+                        android:textColor="@color/textColorSecondary"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="支付宝" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/margin5dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="订单编号"
+                        android:textColor="@color/textColorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/textColorSecondary"
+                        android:textSize="13sp"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="@{resp.hy_order}" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</layout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.items.PayDetailsCostItem" />
+
+    </data>
+
+    <RelativeLayout
+        style="@style/Layout.Padding"
+        android:layout_width="match_parent"
+        android:layout_height="28dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@{item.cost.name}"
+            android:textColor="@color/textColorSecondary"
+            tools:text="租金" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="@{item.cost.money}"
+            android:textColor="@color/textColorSecondary"
+            tools:text="4900元" />
+
+    </RelativeLayout>
+
+</layout>

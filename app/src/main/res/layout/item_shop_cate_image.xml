@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.core.shop.ShopCateImageItem" />
+
+        <variable
+            name="actionHandler"
+            type="com.qixiu.adapter.ItemActionHandler" />
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="56dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="@{v -> actionHandler.onItemClick(item)}">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="@{item.images.name}"
+            android:textColor="@color/white"
+            tools:text="房源" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/shop_image_indicator"
+            app:visibleGone="@{item.checked}"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+
+</layout>

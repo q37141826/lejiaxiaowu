@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+
+            <com.qixiu.lejia.widget.StepView
+                android:id="@+id/personal_steps"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                app:sv_current_step="1" />
+
+            <com.qixiu.lejia.widget.StepView
+                android:id="@+id/corporate_steps"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:visibility="gone"
+                app:sv_current_step="1"
+                app:sv_steps="@array/corporate_steps" />
+
+            <include
+                layout="@layout/include_auth_explain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/white"
+                android:divider="@drawable/divider_offset_start_48"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/auth_icon_industry" />
+
+                    <EditText
+                        android:id="@+id/edit_industry"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="@string/sign_hint_industry"
+                        android:inputType="text"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/auth_icon_company" />
+
+                    <EditText
+                        android:id="@+id/edit_company"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="@string/sign_hint_company"
+                        android:inputType="text"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/auth_icon_company_address" />
+
+                    <EditText
+                        android:id="@+id/edit_company_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="@string/sign_hint_company_address"
+                        android:inputType="text"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/white"
+                android:divider="@drawable/divider_offset_start_48"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/auth_icon_name" />
+
+                    <EditText
+                        android:id="@+id/edit_contact_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="@string/sign_hint_contact_name"
+                        android:inputType="text"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/auth_icon_phone" />
+
+                    <EditText
+                        android:id="@+id/edit_contact_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="@string/sign_hint_contact_phone"
+                        android:inputType="phone"
+                        android:maxLength="11"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/auth_icon_relation" />
+
+                    <EditText
+                        android:id="@+id/edit_contact_relation"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="@string/sign_hint_contact_relation"
+                        android:inputType="text"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/next"
+                style="@style/Button.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/next_step" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</layout>

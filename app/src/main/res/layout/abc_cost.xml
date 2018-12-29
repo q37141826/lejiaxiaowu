@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.beans.RentPayStatus" />
+
+        <variable
+            name="actionHandler"
+            type="com.qixiu.adapter.ItemActionHandler" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:gravity="center"
+            android:text="@{@string/fmt_room_num(item.roomNum)}"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="1024号房" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/white"
+            android:onClick="@{v -> actionHandler.onItemClick(item)}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:drawablePadding="8dp"
+                android:drawableStart="@drawable/ic_rent"
+                android:gravity="center"
+                android:text="@string/service_rent"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_more"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+
+            <TextView
+                android:id="@+id/state"
+                android:layout_width="88dp"
+                android:layout_height="28dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/more"
+                app:layout_constraintTop_toTopOf="parent"
+                app:servicePayStatus="@{item.payStatus}"
+                tools:text="缴费正常" />
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="@drawable/complaint_red_point"
+                app:layout_constraintCircle="@+id/state"
+                app:layout_constraintCircleAngle="74"
+                app:layout_constraintCircleRadius="46dp"
+                app:visibleGone="@{item.showBadge}" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+</layout>

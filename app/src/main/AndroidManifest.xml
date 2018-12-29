@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.qixiu.lejia">
+
+    <!-- Required -->
+    <permission
+        android:name="com.qixiu.lejia.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <!-- Required -->
+    <uses-permission android:name="com.qixiu.lejia.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- Optional. Required for location feature -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+
+    <meta-data
+        android:name="UMENG_APPKEY"
+        android:value="5b10f70df43e48760b0001a3" />
+    <meta-data
+        android:name="UMENG_CHANNEL"
+        android:value="${UMENG_CHANNEL_VALUE}" />
+
+    <application
+        android:name=".app.AppContext"
+        android:allowBackup="false"
+        android:icon="@mipmap/app_iconnew"
+        android:label="@string/app_name"
+        android:supportsRtl="false"
+        android:theme="@style/AppTheme.NoActionBar"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:supportsRtl,android:name">
+
+        <!-- 适配宽屏 -->
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1" />
+
+        <!-- Glide Config begin -->
+        <meta-data
+            android:name="com.qixiu.lejia.config.GlideCacheConfig"
+            android:value="GlideModule" />
+        <meta-data
+            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+            android:value="GlideModule" />
+
+        <!-- Glide Config end -->
+
+
+        <!-- 新版本下载服务 -->
+        <service android:name=".service.DownloadService" />
+
+        <!-- FileProvider -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider" />
+        </provider>
+
+        <!-- 微信分享,登录回调 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent" />
+
+        <!-- 微信支付回调 -->
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.Transparent" />
+
+        <!-- 支付宝支付 -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+
+        <!-- 图片裁剪 -->
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".core.WelcomeAct"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".core.GuideAct"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.FullScreen" />
+
+        <!-- App Main -->
+        <activity
+            android:name=".core.MainActivity"
+            android:clearTaskOnLaunch="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.Home">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Login -->
+        <activity
+            android:name=".core.login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.White"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <!-- 第三方登录绑定手机号 -->
+        <activity
+            android:name=".core.login.LoginBindAct"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.White"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".core.sign.AuthenticationAct"
+            android:label="完善信息"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".core.sign.QualificationsAct"
+            android:label="资质信息"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".core.sign.RentContractAct"
+            android:label="租期合约"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.sign.OfflineAffirmAct"
+            android:label="线下确认"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.sign.PersonalSignPayAct"
+            android:label="@string/title_pay_now"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.sign.CorporateSignPayAct"
+            android:label="@string/title_pay_now" />
+        <activity
+            android:name=".core.web.WebActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.me.profile.UserProfileAct"
+            android:label="@string/me_profile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.me.profile.OtherUserProfileAct"
+            android:label="@string/title_other_profile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.me.profile.AlterNicknameAct"
+            android:label="@string/title_alter_nickname"
+            android:screenOrientation="portrait" />
+
+        <!-- 图片预览 -->
+        <activity
+            android:name=".core.preview.ImagesPreviewAct"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.ImagePreview" />
+        <activity
+            android:name=".core.me.profile.CompleteProfileAct"
+            android:label="完善信息"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".core.me.profile.ChangePhoneAct"
+            android:label="变更手机号"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".core.me.profile.ChangePhoneNextAct"
+            android:label="变更手机号"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".core.me.profile.CompleteQualificationAct"
+            android:label="资质信息"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".core.service.WelcomeSettledAct"
+            android:label="企业员工"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.sign.PaySuccessAct"
+            android:label="支付成功"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.me.points.PointsAct"
+            android:label="@string/title_points"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.me.points.MyPrizeAct"
+            android:label="@string/title_prize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.me.points.PointsDetailAct"
+            android:label="@string/title_points_detail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.me.points.PointsDetailNewAct"
+            android:label="@string/title_points_detail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.me.roommate.RoommatesAct"
+            android:label="@string/title_roommates"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.service.repair.RepairsAct"
+            android:label="@string/title_repairs"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.service.repair.RepairCreateAct"
+            android:label="@string/title_repairs"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".core.service.repair.RepairDetailAct"
+            android:label="@string/title_repair_detail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.service.qa.QuestionsAct"
+            android:label="@string/title_questions"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.service.complaint.ComplaintsAct"
+            android:label="@string/title_complaint"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.service.complaint.ComplaintCreateAct"
+            android:label="@string/title_complaint"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.service.complaint.ComplaintDetailAct"
+            android:screenOrientation="portrait" />
+
+        <!-- 门店详情 -->
+        <activity
+            android:name=".core.shop.ShopDetailAct"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.ImagePreview" />
+        <activity
+            android:name=".core.shop.AppointmentAct"
+            android:label="在线预约"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".core.service.rent.RentAct"
+            android:label="房租"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.service.we.WaterAndElectricityAct"
+            android:label="水电费"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.home.HomeStoryAct"
+            android:label="乐家客故事"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.service.bill.BillAct"
+            android:label="历史账单"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.service.rent.RentDetailAct"
+            android:label="房租"
+            android:screenOrientation="portrait" />
+
+        <!-- 离我最近 -->
+        <activity
+            android:name=".core.shop.ShopMapDisplayAct"
+            android:screenOrientation="portrait" />
+
+        <!-- 房间详情 -->
+        <activity
+            android:name=".core.shop.RoomDetailAct"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar.ImagePreview" />
+        <activity
+            android:name=".core.service.we.WaterCostDetailAct"
+            android:label="@string/water_cost"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.service.we.ElectricityCostDetailAct"
+            android:label="@string/power_cost"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.home.GuaranteeExplainAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".core.me.message.MessageListActivity"
+            android:label="@string/message_list" />
+        <activity android:name=".core.me.message.MessageDetailsActivity" />
+        <activity android:name=".core.home.home_story.HomeStoryActivity" />
+        <activity android:name=".core.me.message.notice.NoticeActivity" />
+        <activity android:name=".core.me.message.bill.BillActivity" />
+        <activity android:name=".core.me.message.preferential_event.PreferentialEventActivity" />
+        <activity
+            android:name=".core.home.home_event.SignWebActivity"
+            android:label="@string/event_details" />
+
+        <!-- 以下是极光推送部分 -->
+        <!-- Required SDK 核心功能 -->
+        <!-- 可配置android:process参数将PushService放在其他进程中 -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+        <!-- &lt;!&ndash; since 3.0.9 Required SDK 核心功能&ndash;&gt; -->
+        <!-- <provider -->
+        <!-- android:authorities=".DataProvider" -->
+        <!-- android:name="cn.jpush.android.service.DataProvider" -->
+        <!-- android:exported="true" -->
+        <!-- /> -->
+        <!-- &lt;!&ndash; Required SDK核心功能&ndash;&gt; -->
+        <!-- <activity -->
+        <!-- android:name="cn.jpush.android.ui.PushActivity" -->
+        <!-- android:configChanges="orientation|keyboardHidden" -->
+        <!-- android:theme="@android:style/Theme.NoTitleBar" -->
+        <!-- android:exported="false" > -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="cn.jpush.android.ui.PushActivity" /> -->
+        <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+        <!-- <category android:name="com.qixiu.lejia" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
+
+
+        <!-- <meta-data android:name="JPUSH_APPKEY" android:value="19a0fc245e220e51e7a89cc3"/> -->
+
+        <receiver
+            android:name=".service.JPushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <!-- Required  用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />
+                <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".core.home.home_story.StoryWebActivity" />
+        <activity
+            android:name=".core.me.sign.FilePreviewActivity"
+            android:label="@string/file_preview" />
+        <activity
+            android:name=".core.me.sign.SignNameActivity"
+            android:label="@string/sign_name" />
+        <activity android:name=".core.me.sign.PdfFilePrefviewActivity" />
+        <activity android:name=".core.me.sign.MyElectictPayActivity"></activity>
+    </application>
+
+</manifest>

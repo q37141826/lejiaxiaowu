@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.qixiu.adapter.LayoutManagers" />
+
+        <import type="com.qixiu.lejia.core.home.HomeItemDecorations" />
+
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.core.home.HomeEventsItem" />
+
+        <variable
+            name="actionHandler"
+            type="com.qixiu.lejia.core.home.HomeItemActionHandler" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="vertical">
+
+        <TextView
+
+            android:textStyle="bold"
+            android:id="@+id/section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/home_events"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="18sp" />
+
+        <!--suppress AndroidDomInspection -->
+        <android.support.v7.widget.RecyclerView
+            android:id="@id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingEnd="8dp"
+            android:paddingStart="0dp"
+            app:divider="@{HomeItemDecorations.shopsDivider(8)}"
+            app:itemActionHandler="@{actionHandler}"
+            app:items="@{item.items}"
+            app:layoutManager="@{LayoutManagers.horizontal()}" />
+
+    </LinearLayout>
+
+</layout>

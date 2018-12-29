@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="room"
+            type="com.qixiu.lejia.beans.Room" />
+
+        <variable
+            name="rent"
+            type="com.qixiu.lejia.beans.Rent" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/pay"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="立即支付"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/pay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.qixiu.lejia.widget.StepView
+                    android:id="@+id/step_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    app:sv_current_step="4" />
+
+                <include
+                    layout="@layout/item_room"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:item="@{room}" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="租期开始时间"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/start_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="10dp"
+                        android:text="2018年3月24日"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="20sp" />
+
+                    <LinearLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="租 期"
+                            android:textColor="@color/textColorSecondary" />
+
+
+                        <FrameLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.5">
+
+                            <TextView
+                                android:id="@+id/lease"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableEnd="@drawable/ic_more"
+                                android:drawablePadding="8dp"
+                                android:text="1个月"
+                                android:textColor="@color/textColorPrimary"
+                                android:textSize="15sp" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <!--付款方式-->
+                    <LinearLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="付款方式"
+                            android:textColor="@color/textColorSecondary" />
+
+
+                        <android.support.v7.widget.GridLayout
+                            android:id="@+id/periods"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.5"
+                            app:columnCount="2"
+                            app:rowCount="2"
+                            app:useDefaultMargins="true">
+
+                            <CheckedTextView
+                                android:background="@drawable/pay_periods"
+                                android:enabled="false"
+                                android:gravity="center"
+                                android:minHeight="32dp"
+                                android:minWidth="90dp"
+                                android:text="押一付一"
+                                android:textColor="@color/color_selector_pay_periods" />
+
+                            <CheckedTextView
+                                android:layout_marginStart="16dp"
+                                android:background="@drawable/pay_periods"
+                                android:enabled="false"
+                                android:gravity="center"
+                                android:minHeight="32dp"
+                                android:minWidth="90dp"
+                                android:text="押一付三"
+                                android:textColor="@color/color_selector_pay_periods" />
+
+                            <CheckedTextView
+                                android:layout_marginTop="16dp"
+                                android:background="@drawable/pay_periods"
+                                android:enabled="false"
+                                android:gravity="center"
+                                android:minHeight="32dp"
+                                android:minWidth="90dp"
+                                android:text="半年付"
+                                android:textColor="@color/color_selector_pay_periods" />
+
+                            <CheckedTextView
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="16dp"
+                                android:background="@drawable/pay_periods"
+                                android:enabled="false"
+                                android:gravity="center"
+                                android:minHeight="32dp"
+                                android:minWidth="90dp"
+                                android:text="全年付"
+                                android:textColor="@color/color_selector_pay_periods" />
+
+                        </android.support.v7.widget.GridLayout>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="支付方式"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <RadioGroup
+                            android:id="@+id/pay_ways"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.5"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/wx_pay"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/wx" />
+
+                            <RadioButton
+                                android:id="@+id/alipay"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="true"
+                                android:text="@string/alipay" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="首次支付"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <TextView
+                            android:id="@+id/first_pay"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.5"
+                            android:text="@{@string/fmt_yuan(rent.firstPay)}"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="15sp"
+                            tools:text="2650元" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        style="@style/Layout.Padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="其余每次支付"
+                            android:textColor="@color/textColorSecondary" />
+
+                        <TextView
+                            android:id="@+id/monthly_pay"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.5"
+                            android:text="@{rent.monthlyPay}"
+                            android:textColor="@color/textColorPrimary"
+                            android:textSize="15sp"
+                            tools:text="1200元/月" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/pay_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="查看缴费明细 》"
+                        android:textColor="@color/colorAccent" />
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

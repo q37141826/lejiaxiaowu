@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?><!--suppress AndroidDomInspection -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.qixiu.adapter.LayoutManagers" />
+
+        <import type="com.qixiu.lejia.core.home.HomeItemDecorations" />
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.core.home.HomeStorysItem" />
+
+        <variable
+            name="actionHandler"
+            type="com.qixiu.lejia.core.home.HomeItemActionHandler" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:descendantFocusability="blocksDescendants">
+        <View
+            android:background="@color/colorDivider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin0.5dp"></View>
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/home_story"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:onClick="@{v -> actionHandler.startStory()}"
+            android:text="@string/home_shops_more"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:clipToPadding="false"
+            android:paddingEnd="10dp"
+            android:paddingStart="0dp"
+            app:divider="@{HomeItemDecorations.shopsDivider(10)}"
+            app:itemActionHandler="@{actionHandler}"
+            app:items="@{item.storyItems}"
+            app:layoutManager="@{LayoutManagers.vertical()}"
+            app:layout_constraintTop_toBottomOf="@+id/section" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorDivider"
+            app:layout_constraintTop_toBottomOf="@id/recycler_view" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.core.service.qa.ShopContactItem" />
+
+        <variable
+            name="actionHandler"
+            type="com.qixiu.adapter.ItemActionHandler" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:onClick="@{v -> actionHandler.onItemClick(item)}"
+        android:paddingEnd="@dimen/activity_padding"
+        android:paddingStart="@dimen/activity_padding"
+        android:text="@{item.contact.shopName}"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:background="@color/translucent"/>
+    </LinearLayout>
+</layout>

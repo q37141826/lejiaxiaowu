@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/backdrop"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/test_me_backdrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/home_status_bar_color" />
+
+        <com.qixiu.widget.CircleImageView
+            android:id="@+id/avatar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/ic_avatar_holder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/me_please_login"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/avatar" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="180dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="3dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/divider_offset_start_56"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+                <RelativeLayout
+                    android:id="@+id/signed"
+                    style="@style/Layout.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:id="@+id/icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_signed"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/text_primary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="?attr/listPreferredItemPaddingRight"
+                        android:layout_marginStart="?attr/listPreferredItemPaddingLeft"
+                        android:layout_toEndOf="@id/icon"
+                        android:maxLength="12"
+                        android:maxLines="1"
+                        android:text="@string/me_sign"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="16sp" />
+
+                    <!--右边箭头-->
+                    <ImageView
+                        android:id="@+id/right_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_more"
+                        tools:ignore="ContentDescription" />
+
+                    <!--右边次要文字-->
+                    <TextView
+                        android:id="@+id/signed_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toStartOf="@+id/right_arrow"
+                        tools:ignore="RelativeOverlap"
+                        tools:text="2" />
+
+                    <TextView
+                        android:id="@+id/hydroelectric_tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toStartOf="@id/signed_count"
+                        android:background="@drawable/me_signed_tag"
+                        android:text="@string/me_hydroelectric_tag"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/rent_tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toStartOf="@id/hydroelectric_tag"
+                        android:background="@drawable/me_signed_tag"
+                        android:text="@string/me_rent_tag"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12sp"
+                        android:visibility="gone"
+                        tools:ignore="RelativeOverlap" />
+
+
+                </RelativeLayout>
+
+
+                <com.qixiu.widget.LineControllerView
+                    android:id="@+id/appointment"
+                    style="@style/LineControllerView.ShowArrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    app:leftIcon="@drawable/ic_appointment"
+                    app:textPrimary="@string/me_appointment"
+                    app:textPrimarySize="16sp"
+                    app:textSecondarySize="14sp" />
+
+                <com.qixiu.widget.LineControllerView
+                    android:id="@+id/credit"
+                    style="@style/LineControllerView.ShowArrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    app:leftIcon="@drawable/ic_points"
+                    app:textPrimary="@string/me_points"
+                    app:textPrimarySize="16sp"
+                    app:textSecondaryColor="#6BC2B0"
+                    app:textSecondarySize="14sp" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@color/white"
+            android:divider="@drawable/divider_offset_start_56"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card">
+
+            <com.qixiu.widget.LineControllerView
+                android:id="@+id/message"
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                app:leftIcon="@drawable/ic_message"
+                app:textPrimary="@string/me_message"
+                app:textPrimarySize="16sp"
+                app:textSecondarySize="14sp" />
+
+            <com.qixiu.widget.LineControllerView
+                android:id="@+id/profile"
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                app:leftIcon="@drawable/ic_profile"
+                app:textPrimary="@string/me_profile"
+                app:textPrimarySize="16sp"
+                app:textSecondarySize="14sp" />
+
+            <com.qixiu.widget.LineControllerView
+                android:id="@+id/chum"
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                app:leftIcon="@drawable/ic_roomie"
+                app:textPrimary="@string/me_roomie"
+                app:textPrimarySize="16sp"
+                app:textSecondarySize="14sp" />
+            <com.qixiu.widget.LineControllerView
+                android:id="@+id/test"
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                app:leftIcon="@mipmap/electric_and_water"
+                app:textPrimary="生活缴费"
+                app:textPrimarySize="16sp"
+                app:textSecondarySize="14sp" />
+
+            <com.qixiu.widget.LineControllerView
+                android:id="@+id/version"
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                app:leftIcon="@drawable/ic_version"
+                app:textPrimary="@string/me_version"
+                app:textPrimarySize="16sp"
+                app:textSecondary="v1.0"
+                app:textSecondarySize="14sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:id="@+id/no_read"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/complaint_red_point"
+            android:layout_marginRight="@dimen/margin40dp"
+            app:layout_constraintEnd_toEndOf="@+id/ll"
+            app:layout_constraintTop_toTopOf="@+id/ll"
+           />
+
+        <include
+            layout="@layout/include_lejia"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>

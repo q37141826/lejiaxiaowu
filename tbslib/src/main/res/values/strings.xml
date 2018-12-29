@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TBSFileBrowsing</string>
+    <string name="provider">com.qixiu.lejia.myfileprovider</string>
+</resources>

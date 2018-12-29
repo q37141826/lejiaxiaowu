@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.core.service.bill.BillHistoryTitleItem" />
+
+    </data>
+
+    <LinearLayout
+        style="@style/Layout.Padding"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/windowBackground"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.bill.month}"
+            android:textColor="@color/textColorPrimary"
+            tools:text="本月" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/fmt_expenditure(item.bill.total)}"
+            tools:text="支出 ￥1950.00" />
+
+    </LinearLayout>
+
+</layout>

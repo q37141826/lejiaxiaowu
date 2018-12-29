@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.core.service.qa.QuestionItem" />
+
+        <variable
+            name="actionHandler"
+            type="com.qixiu.adapter.ItemActionHandler" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:onClick="@{v -> actionHandler.onItemClick(item)}"
+            android:paddingEnd="0dp"
+            android:paddingStart="@dimen/activity_padding">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/arrow"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{item.question.question}"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp"
+                tools:text="问题描述" />
+
+            <ImageView
+                android:id="@+id/arrow"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_more"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/expandable_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:el_duration="200"
+            app:el_expanded="false">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="@{item.question.answer}"
+                android:textColor="@color/textColorSecondary" />
+
+        </net.cachapa.expandablelayout.ExpandableLayout>
+
+    </LinearLayout>
+
+</layout>

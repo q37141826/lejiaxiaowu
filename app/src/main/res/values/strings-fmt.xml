@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="fmt_room_price">￥ %s / 月</string>
+    <string name="fmt_room_spec">| %s | %s㎡ | %s</string>
+    <string name="fmt_yuan">%s元</string>
+
+    <string name="fmt_months">%s个月</string>
+
+    <string name="fmt_month_pay">%s/月</string>
+
+    <string name="fmt_points_plus">+%s</string>
+    <string name="fmt_points_minus">-%s</string>
+
+    <string name="fmt_shop_spec">%d个户型 | %d㎡起 | %d套房源 </string>
+
+    <string name="fmt_room_spec2">%s | %s | %s㎡</string>
+    <string name="fmt_price_range">￥%s-￥%s/月</string>
+    
+    <string name="fmt_room_title">%s%s</string>
+    <string name="fmt_room_spec3">%s | %s㎡</string>
+
+    <string name="fmt_expenditure">支出 ￥%s</string>
+    <string name="fmt_pay_way">[%s]</string>
+    <string name="fmt_bill_sum">-￥%s</string>
+
+    <string name="fmt_room_num">%s号房</string>
+
+    <!--水费欠费-->
+    <string name="fmt_water_owed">-%sm³</string>
+    <string name="fmt_water_price">%s元/m³</string>
+    
+    <string name="fmt_electricity_owed">-%s度</string>
+    <string name="fmt_electricity_price">%s元/度</string>
+
+
+</resources>

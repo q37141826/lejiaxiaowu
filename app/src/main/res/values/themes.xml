@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!--默认背景-->
+        <item name="android:colorBackground">@color/windowBackgroundColor</item>
+        <item name="android:windowBackground">@color/windowBackgroundColor</item>
+
+        <!--标题栏高度-->
+        <item name="actionBarSize">@dimen/action_bar_size</item>
+
+        <!-- AppCompatEditText默认状态状态设置底线颜色 -->
+        <item name="colorControlNormal">@color/grey_300</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+        <item name="android:textColorHint">@color/textColorHint</item>
+
+        <!--禁止多点点击-->
+        <item name="android:splitMotionEvents">false</item>
+        <!--软键盘弹出-->
+        <item name="android:windowSoftInputMode">adjustResize</item>
+
+        <!--ListView 分割线-->
+        <item name="android:listDivider">@drawable/divider_horizontal</item>
+
+        <!--返回键样式-->
+        <item name="android:homeAsUpIndicator">@drawable/ic_back</item>
+        <item name="homeAsUpIndicator">@drawable/ic_back</item>
+
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
+        <!--开启5.0动画效果-->
+        <item name="android:windowContentTransitions">true</item>
+
+    </style>
+
+    <!--不带标题-->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.AppBarOverlay.Light" parent="ThemeOverlay.AppCompat.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.PopupOverlay.Dark" parent="ThemeOverlay.AppCompat.Dark" />
+
+    <!--白色窗口背景-->
+    <style name="AppTheme.NoActionBar.White">
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Home">
+        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
+    </style>
+
+    <!--全透明主题-->
+    <style name="AppTheme.Transparent">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- Note that we use the base animation style here (that is no
+             animations) because we really have no idea how this kind of
+             activity will be used. -->
+        <item name="android:windowAnimationStyle">@style/Animation</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.FullScreen">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="AppTheme.Launcher" parent="AppTheme.NoActionBar.FullScreen">
+        <item name="android:windowBackground">@drawable/welcome</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.ImagePreview">
+        <!--返回键样式-->
+        <item name="android:homeAsUpIndicator">@drawable/ic_back_white</item>
+        <item name="homeAsUpIndicator">@drawable/ic_back_white</item>
+    </style>
+
+</resources>

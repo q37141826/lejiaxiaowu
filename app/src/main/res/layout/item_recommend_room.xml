@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.core.shop.RecommendRoomItem" />
+
+        <variable
+            name="actionHandler"
+            type="com.qixiu.adapter.ItemActionHandler" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="@{v -> actionHandler.onItemClick(item)}"
+        android:paddingBottom="12dp">
+
+        <com.qixiu.widget.RoundedImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:scaleType="fitXY"
+            app:bindImage="@{item.room.image}"
+            app:defHolder="@{@drawable/holder_middle_banner}"
+            app:errorHolder="@{@drawable/holder_middle_banner}"
+            app:placeHolder="@{@drawable/holder_middle_banner}"
+            app:riv_corner_radius="4dp"
+            tools:src="@drawable/test_room" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone">
+
+            <LinearLayout
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_discount"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(item.room.discount)}"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="5.0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="折"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="#80ffffff"
+                android:gravity="center_vertical|end"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp">
+
+                <TextView
+                    android:id="@+id/daysTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_date"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    tools:text="15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="天："
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/hoursTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:background="@drawable/bg_date"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    tools:text="30" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="时："
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/minutesTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_date"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    tools:text="26" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="分"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/spec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{@string/fmt_room_spec2(item.room.spec,item.room.name,item.room.area)}"
+            android:textColor="@color/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:text="精装户型 | 一室一厅 | 24㎡" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{@string/fmt_price_range(item.room.lowestPrice,item.room.highestPrice)}"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spec"
+            tools:text="￥1193-￥1800/月" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

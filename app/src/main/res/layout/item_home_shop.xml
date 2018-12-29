@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.core.home.HomeShopItem" />
+
+        <variable
+            name="actionHandler"
+            type="com.qixiu.adapter.ItemActionHandler" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{v -> actionHandler.onItemClick(item.shop)}">
+
+        <com.qixiu.widget.RoundedImageView
+            android:id="@+id/image"
+            android:layout_width="220dp"
+            android:layout_height="130dp"
+            android:scaleType="fitXY"
+            app:bindImage="@{item.shop.image}"
+            app:defHolder="@{@drawable/holder_middle_banner}"
+            app:errorHolder="@{@drawable/holder_middle_banner}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:placeHolder="@{@drawable/holder_middle_banner}"
+            app:riv_corner_radius="4dp"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/holder_middle_banner" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/ic_shop_badge"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibleGone="@{item.shop.hasDiscount}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.shop.discount}"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                tools:text="9.8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-8px"
+                android:text="折"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/shop_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{item.shop.title}"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image"
+            tools:text="乐家小屋·第一季" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="6dp"
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/ic_location"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="@{item.shop.address}"
+            android:textColor="@color/grey_500"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shop_name"
+            tools:text="汉阳区王家湾" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@{@string/home_shop_price(item.shop.price)}"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shop_name"
+            tools:text="￥1999/月" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

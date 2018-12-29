@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".core.MainActivity">
+
+    <!--container-->
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <!--bottom navigation-->
+    <com.qixiu.widget.BottomNavigationView
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.qixiu.widget.BottomNavigationItemView
+            style="@style/Widget.HomeBottomItem"
+            android:checked="true"
+            app:icon="@drawable/selector_tab_home"
+            app:label="@string/title_home" />
+
+        <com.qixiu.widget.BottomNavigationItemView
+            style="@style/Widget.HomeBottomItem"
+            app:icon="@drawable/selector_tab_services"
+            app:label="@string/title_services" />
+
+        <com.qixiu.widget.BottomNavigationItemView
+            style="@style/Widget.HomeBottomItem"
+            app:icon="@drawable/selector_tab_me"
+            app:label="@string/title_me" />
+
+    </com.qixiu.widget.BottomNavigationView>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.beans.Complaint" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_padding">
+
+                <com.qixiu.widget.CircleImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/ic_avatar_holder"
+                    app:bindImage="@{item.avatar}"
+                    app:defHolder="@{@drawable/ic_avatar_holder}}"
+                    app:errorHolder="@{@drawable/ic_avatar_holder}}"
+                    app:placeHolder="@{@drawable/ic_avatar_holder}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@{item.date}"
+                        android:textColor="@color/textColorSecondary"
+                        tools:text="2018/10/30 12:30" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{item.desc}"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="16sp"
+                        tools:text="xxxxxxxxxxxxxxxxxxxx" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="@dimen/activity_padding"
+                app:visibleGone="@{!TextUtils.isEmpty(item.replyContent)}">
+
+                <com.qixiu.widget.CircleImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/lj" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@{item.replyTime}"
+                        android:textColor="@color/textColorSecondary"
+                        tools:text="2018/10/30 12:30" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{item.replyContent}"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="16sp"
+                        tools:text="xxxxxxxxxxxxxxxxxxxx" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

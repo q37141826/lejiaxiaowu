@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.qixiu.lejia.widget.StepView
+                android:id="@+id/personal_steps"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                app:sv_current_step="2" />
+
+            <com.qixiu.lejia.widget.StepView
+                android:id="@+id/corporate_steps"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:visibility="gone"
+                app:sv_current_step="2"
+                app:sv_steps="@array/corporate_steps" />
+
+            <include
+                layout="@layout/include_auth_explain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/white"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/activity_padding"
+                android:paddingEnd="@dimen/activity_padding"
+                android:paddingStart="@dimen/activity_padding"
+                android:paddingTop="@dimen/activity_padding">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rent_contract_title"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingExtra="6dp"
+                    android:text="@string/rent_contract_content"
+                    android:textColor="@color/textColorSecondary" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical">
+
+                    <CheckBox
+                        android:id="@+id/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/read_and_agree" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lejia_rent_treaty"
+                        android:textColor="@color/colorAccent" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/next"
+                style="@style/Button.Default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/next_step" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

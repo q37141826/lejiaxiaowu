@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="StepView">
+        <attr name="sv_current_step" format="integer"/>
+        <attr name="sv_steps" format="reference"/>
+        <attr name="sv_selected_circle_color" format="color|reference" />
+        <attr name="sv_unselected_circle_color" format="color|reference" />
+        <attr name="sv_circle_radius" format="dimension|reference" />
+        <attr name="sv_number_size" format="dimension|reference" />
+        <attr name="sv_selected_number_color" format="color|reference" />
+        <attr name="sv_unselected_number_color" format="color|reference" />
+        <attr name="sv_text_size" format="dimension|reference" />
+        <attr name="sv_selected_text_color" format="color|reference" />
+        <attr name="sv_unselected_text_color" format="color|reference" />
+        <attr name="sv_line_size" format="dimension|reference" />
+        <attr name="sv_selected_line_color" format="color|reference" />
+        <attr name="sv_unselected_line_color" format="color|reference" />
+        <attr name="sv_text_margin" format="dimension|reference" />
+
+    </declare-styleable>
+
+    <style name="StepView">
+        <item name="sv_steps">@array/steps</item>
+        <item name="sv_selected_circle_color">@color/colorAccent</item>
+        <item name="sv_unselected_circle_color">@color/grey_500</item>
+        <item name="sv_circle_radius">14dp</item>
+        <item name="sv_number_size">14sp</item>
+        <item name="sv_selected_number_color">@color/white</item>
+        <item name="sv_unselected_number_color">@color/textColorPrimary</item>
+        <item name="sv_text_size">12sp</item>
+        <item name="sv_selected_text_color">@color/textColorPrimary</item>
+        <item name="sv_unselected_text_color">@color/textColorPrimary</item>
+        <item name="sv_line_size">4dp</item>
+        <item name="sv_selected_line_color">@color/colorAccent</item>
+        <item name="sv_unselected_line_color">@color/grey_500</item>
+        <item name="sv_text_margin">12dp</item>
+    </style>
+
+    <string-array name="steps">
+        <item>完善信息</item>
+        <item>资质信息</item>
+        <item>租期公约</item>
+        <item>线下确认</item>
+        <item>在线支付</item>
+    </string-array>
+
+</resources>

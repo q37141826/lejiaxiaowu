@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:divider="@drawable/divider_offset_start_16"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+
+            <com.qixiu.widget.LineControllerView
+                android:id="@+id/hobby"
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                app:textPrimary="兴趣爱好"
+                app:textSecondary="电影、音乐"
+                app:textSecondarySize="14sp" />
+
+            <com.qixiu.widget.LineControllerView
+                android:id="@+id/heightAndWeight"
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                app:textPrimary="身高体重"
+                app:textSecondary="163cm  50kg"
+                app:textSecondarySize="14sp" />
+
+            <com.qixiu.widget.LineControllerView
+                android:id="@+id/education"
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                app:textPrimary="最高学历"
+                app:textSecondary="博士后"
+                app:textSecondarySize="14sp" />
+
+            <com.qixiu.widget.LineControllerView
+                android:id="@+id/revenue"
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                app:textPrimary="收入范围"
+                app:textSecondary="6~8千/月"
+                app:textSecondarySize="14sp" />
+
+            <com.qixiu.widget.LineControllerView
+                android:id="@+id/maritalStatus"
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                app:textPrimary="婚否"
+                app:textSecondary="未婚"
+                app:textSecondarySize="14sp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</layout>

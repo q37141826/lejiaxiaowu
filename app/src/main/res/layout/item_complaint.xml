@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+        <import type="com.bumptech.glide.Glide" />
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.core.service.complaint.ComplaintItem" />
+
+        <variable
+            name="actionHandler"
+            type="com.qixiu.adapter.ItemActionHandler" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@color/white"
+        android:foreground="?selectableItemBackground"
+        android:onClick="@{v -> actionHandler.onItemClick(item)}">
+
+        <View
+            android:id="@+id/point"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/complaint_red_point"
+            android:visibility="@{item.c.readed == 1 ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.qixiu.widget.CircleImageView
+            android:id="@+id/avatar"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_avatar_holder"
+            app:bindImage="@{item.c.avatar}"
+            app:defHolder="@{@drawable/ic_avatar_holder}}"
+            app:errorHolder="@{@drawable/ic_avatar_holder}}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/point"
+            app:layout_constraintTop_toTopOf="parent"
+            app:placeHolder="@{@drawable/ic_avatar_holder}" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:text="@{item.c.tag}"
+            android:textColor="@color/textColorPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/textView17"
+            app:layout_constraintStart_toEndOf="@+id/avatar"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="费用问题" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="12dp"
+            android:text="@{item.c.date}"
+            android:textColor="@color/textColorSecondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2018/3/20 12:45" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{item.c.desc}"
+            android:textColor="@color/textColorSecondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView16"
+            app:layout_constraintTop_toBottomOf="@+id/textView16"
+            tools:text="问题描述问题描述问题描述问题描述问题描述问题描述问题描述" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

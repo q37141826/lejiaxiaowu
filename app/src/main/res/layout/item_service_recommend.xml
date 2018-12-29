@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.core.service.ServiceRecommendItem" />
+
+        <variable
+            name="actionHandler"
+            type="com.qixiu.adapter.ItemActionHandler" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{v -> actionHandler.onItemClick(item)}"
+        android:paddingEnd="@dimen/activity_padding"
+        android:paddingStart="@dimen/activity_padding">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:scaleType="fitXY"
+            app:bindImage="@{item.service.image}"
+            app:defHolder="@{@drawable/holder_top_banner}"
+            app:errorHolder="@{@drawable/holder_top_banner}"
+            app:placeHolder="@{@drawable/holder_top_banner}"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/holder_top_banner" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.service.title}"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                tools:text="乐购" />
+
+            <!-- <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="12+"
+                 android:textColor="@color/white"
+                 android:textSize="20sp"
+                 android:textStyle="bold" />-->
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</layout>

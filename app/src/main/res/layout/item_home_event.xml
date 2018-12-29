@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.qixiu.lejia.core.home.HomeEventItem" />
+
+        <variable
+            name="actionHandler"
+            type="com.qixiu.lejia.core.home.HomeItemActionHandler" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="146dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
+
+        <com.qixiu.widget.RoundedImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:onClick="@{v -> actionHandler.startEventDetail(item.event)}"
+            android:scaleType="fitXY"
+            app:bindImage="@{item.event.image}"
+            app:defHolder="@{@drawable/holder_event}"
+            app:errorHolder="@{@drawable/holder_event}"
+            app:placeHolder="@{@drawable/holder_event}"
+            app:riv_corner_radius="2dp"
+            tools:src="@drawable/holder_event" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{item.event.title}"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="16sp"
+            tools:text="端午节活动" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{@string/home_event_date_range(item.event.startDate,item.event.endDate)}"
+            android:textColor="@color/textColorSecondary"
+            tools:text="2018/4/10-6/30" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{item.event.intro}"
+            android:textColor="@color/textColorSecondary"
+            tools:text="优惠大酬宾免单等你......" />
+
+    </LinearLayout>
+
+</layout>

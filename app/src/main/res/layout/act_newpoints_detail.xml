@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearLayout_add"
+                android:paddingLeft="@dimen/margin10dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_marginLeft="@dimen/margin10dp"
+                    android:background="@color/color_points"
+                    android:layout_width="@dimen/margin7dp"
+                    android:layout_height="@dimen/margin15dp"></View>
+
+                <TextView
+                    android:layout_marginLeft="@dimen/margin10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin40dp"
+                    android:background="@color/grey_200"
+                    android:gravity="center_vertical"
+                    android:text="获得信用积分" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_add"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout_reduce"
+                android:paddingLeft="@dimen/margin10dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_marginLeft="@dimen/margin10dp"
+                    android:background="@color/color_points"
+                    android:layout_width="@dimen/margin7dp"
+                    android:layout_height="@dimen/margin15dp"></View>
+
+                <TextView
+                    android:layout_marginLeft="@dimen/margin10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin40dp"
+                    android:background="@color/grey_200"
+                    android:gravity="center_vertical"
+                    android:text="扣除信用积分" />
+            </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_reduce"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

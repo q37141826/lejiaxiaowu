@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:drawablePadding="4dp"
+        android:drawableStart="@drawable/fuck_points_lead"
+        android:gravity="center_vertical"
+        android:paddingEnd="@dimen/activity_padding"
+        android:paddingStart="@dimen/activity_padding"
+        android:text="@string/got_points"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</layout>

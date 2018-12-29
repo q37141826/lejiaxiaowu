@@ -1,0 +1,184 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Widget" parent="android:Widget" />
+
+    <style name="Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:id">@id/toolbar</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
+        <item name="android:theme">@style/AppTheme.AppBarOverlay.Light</item>
+        <item name="android:elevation" tools:targetApi="lollipop">1dp</item>
+
+    </style>
+
+    <style name="Toolbar.NoInsertStart">
+        <item name="contentInsetStart">0dp</item>
+    </style>
+
+    <style name="Toolbar.NoElevation">
+        <item name="android:elevation" tools:targetApi="lollipop">0dp</item>
+    </style>
+
+    <style name="TextView" />
+
+    <style name="TextView.ToolbarTitle">
+        <item name="android:id">@id/title</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textAppearance">@style/TextAppearance.ToolbarTitle</item>
+    </style>
+
+    <style name="TextView.LineTitle">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextAppearance" />
+
+    <style name="TextAppearance.ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <style name="Button">
+        <item name="android:stateListAnimator" tools:targetApi="lollipop">@null</item>
+        <item name="android:elevation" tools:targetApi="lollipop">0dp</item>
+    </style>
+
+    <style name="Button.Default">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/button_default</item>
+    </style>
+
+    <style name="Button.Small">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:background">@drawable/button_small</item>
+
+    </style>
+
+    <style name="Layout" />
+
+    <style name="Layout.ListPreferredItem">
+        <item name="android:paddingStart">?attr/listPreferredItemPaddingLeft</item>
+        <item name="android:paddingEnd">?attr/listPreferredItemPaddingRight</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="Layout.Padding">
+        <item name="android:paddingLeft">?attr/listPreferredItemPaddingLeft</item>
+        <item name="android:paddingRight">?attr/listPreferredItemPaddingRight</item>
+    </style>
+
+    <!--global switch style-->
+    <style name="SwitchWidget">
+        <item name="colorControlActivated">#4DD865</item>
+        <item name="colorAccent">#4DD865</item>
+    </style>
+
+    <style name="AppCompatWidget">
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppCompatWidget.White">
+        <item name="colorControlActivated">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+    </style>
+
+    <style name="LineControllerView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="LineControllerView.ShowArrow">
+        <item name="android:checkable">true</item>
+        <item name="showRightArrow">true</item>
+        <item name="rightArrowIcon">@drawable/ic_more</item>
+    </style>
+
+    <style name="LineControllerView.Def">
+        <item name="android:checkable">true</item>
+        <item name="showRightArrow">true</item>
+        <item name="rightArrowIcon">@drawable/ic_more</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="textPrimarySize">15sp</item>
+        <item name="textSecondarySize">14sp</item>
+    </style>
+
+    <style name="LineControllerView.ShowSwitch">
+        <item name="android:theme">@style/SwitchWidget</item>
+        <item name="showSwitch">true</item>
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/grey_500</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+    </style>
+
+
+    <style name="Dialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <!--加载中指示器样式-->
+    <style name="LoadIndicatorDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackground">@android:color/transparent</item>
+    </style>
+
+
+    <!--首页底部导航item样式-->
+    <style name="Widget.HomeBottomItem">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="labelColor">@color/color_selector_primary</item>
+    </style>
+
+    <!--新增室友弹窗样式-->
+    <style name="RoommateCreateDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/RoommateCreateBottomSheet</item>
+        <item name="colorControlNormal">@color/grey_300</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+    </style>
+
+    <style name="RoommateCreateBottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="behavior_peekHeight">1000dp</item>
+        <item name="behavior_skipCollapsed">true</item>
+    </style>
+
+
+    <style name="normal_text">
+
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/normal_text_grey</item>
+
+    </style>
+    <style name="normal_text_grey">
+
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/grey_700</item>
+
+    </style>
+</resources>

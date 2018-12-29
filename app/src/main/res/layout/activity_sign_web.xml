@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.qixiu.lejia.core.home.home_event.SignWebActivity">
+
+
+    <WebView
+        android:id="@+id/web_view_sign"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></WebView>
+
+    <Button
+        android:text="活动报名"
+        android:id="@+id/btn_sign_event"
+        style="@style/Button.Default"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin40dp"
+        android:layout_alignParentBottom="true" />
+    <RelativeLayout
+        android:visibility="gone"
+        android:background="@color/alpha_grey"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/relativeLayout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/margin25dp"
+            android:paddingRight="@dimen/margin25dp">
+
+            <TextView
+                android:id="@+id/textView_title_event"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin50dp"
+                android:gravity="center_vertical"
+                android:text="活动的标题"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView_time_event"
+                style="@style/normal_text"
+                android:text="活动时间" />
+
+            <TextView
+                android:id="@+id/textView_address_event"
+                style="@style/normal_text"
+                android:layout_marginTop="@dimen/margin5dp"
+                android:text="活动地点" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/normal_text"
+                    android:text="姓    名" />
+
+                <EditText
+                    android:id="@+id/edttext_name_event"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="请输入您的姓名"
+                    android:paddingLeft="@dimen/margin20dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin0.5dp"
+                android:background="@drawable/login_line"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/normal_text"
+                    android:text="手机号" />
+
+                <EditText
+                    android:maxLength="11"
+                    android:inputType="number"
+                    android:id="@+id/edttext_phone_event"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="请输入您的手机号"
+                    android:paddingLeft="@dimen/margin20dp"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin0.5dp"
+                android:background="@drawable/login_line"></View>
+
+            <Button
+                android:id="@+id/btn_event_sign_pop"
+                style="@style/Button.Default"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin40dp"
+                android:layout_marginBottom="@dimen/margin20dp"
+                android:layout_marginTop="@dimen/margin20dp"
+                android:text="报名" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</RelativeLayout>

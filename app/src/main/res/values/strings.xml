@@ -1,0 +1,194 @@
+<resources>
+    <string name="app_name">乐家小屋</string>
+
+    <string name="title_home">首页</string>
+    <string name="title_services">生活服务</string>
+    <string name="title_me">我的</string>
+
+    <string name="home_shops">门店展示</string>
+    <string name="home_story">乐家客故事</string>
+    <string name="home_shops_more">更多 》</string>
+    <string name="home_guarantee">品质保障</string>
+    <string name="home_events">线下活动</string>
+
+    <string name="home_guarantee_text1">独门独户私人空间\n装修环保住的安心</string>
+    <string name="home_guarantee_text2">品牌家电智能操控\n随心所享居住空间</string>
+    <string name="home_guarantee_text3">休闲书吧健身舞房\n社群活动超有趣</string>
+
+    <string name="home_shop_price">￥%s起/月</string>
+    <string name="home_event_date_range">%s-%s</string>
+
+
+    <string name="me_sign">我的签约</string>
+    <string name="me_appointment">我的预约</string>
+    <string name="me_points">信用积分</string>
+    <string name="me_message">消息</string>
+    <string name="me_profile">个人资料</string>
+    <string name="me_roomie">室友</string>
+    <string name="me_version">版本号</string>
+    <string name="me_please_login">请登录</string>
+    <string name="me_nickname_unset">未设置昵称</string>
+    <string name="me_hydroelectric_tag">水电待缴纳</string>
+    <string name="me_rent_tag">房租待缴纳</string>
+
+
+    <string name="login_hint_phone">请输入手机号</string>
+    <string name="login_hint_code">请输入验证码</string>
+    <string name="login_sign_in">登录</string>
+    <string name="login_bind">绑定</string>
+    <string name="login_over">完成</string>
+    <string name="login_third_way">其他方式登录</string>
+    <string name="login_get_code">获取验证码</string>
+    <string name="login_countdown">%dS后重试</string>
+
+
+    <string name="auth_explain">实名认证便于您签订合同以及后续缴费等，同时还可以保障您的个人安全哟~</string>
+    <string name="next_step">下一步</string>
+
+
+    <string name="rent_contract_title">乐家租期公约</string>
+    <string name="rent_contract_content">
+        欢迎入住乐家小屋。为了与您共同营造一个和谐、文明、舒适、安全的居住环境，特制定本公约，请仔细阅读以下公约内容并一起遵守，维护好我们共同的家园。\n
+        1、 在使用房屋时遵守我国法规、及房屋租赁合同内相关规定，禁止在公寓内从事任何违法行为，一经发现，乐家小屋有权清退；\n
+        2、 加强安全防范意识 ，公寓内禁止使用煤油炉、酒精炉、液化器灶等可能引起火灾的器具，禁止在公寓楼内焚烧杂物；\n
+              \t\t禁止在公寓内存放易燃、易爆等危险物品，如引发事故，将依法追究相关责任；\n
+              \t\t请不要在房间内进行任何电路改造、乱加电线及使用不合格电器，由此原因引起的电路短路或者设备损坏所产生的费用，由乐家客自行承担；\n
+        3、 公寓全部采用最新智能电子密码锁，您不用带钥匙即可以打开您的房间，住户请自行管理好各自门户，贵重物品请妥善保管，如有丢失，自行负责；\n
+        4、 请不要在公寓内养宠物；\n
+        5、 请将车辆（自行车、电动车、汽车）停放到指定停放区域；\n
+        6、 自觉维护公共场所环境整洁美观，公用设施完好。邻里之间友好相处，请不要在公共区域聚众、喧哗、抽烟等，请勿高空抛物，房间装有烟感和喷淋，请勿造成烟雾过大，小心喷水；\n
+        7、 请不要在公共区域及楼道堆放鞋架、储物盒等私人物品及任何杂物，一经发现，保洁人员将视为垃圾收走。生活垃圾请扔到楼层垃圾桶内，不要堆放在门口或者随处乱扔；\n
+        8、 请保持室内墙面的整洁、严禁室内及窗外私自搭建、改造、涂抹、破坏墙体、改变楼体等行为，一经发现，所有复原产生的费用将由乐家客个人承担；\n
+        9、 我们会以短信或者电话提醒的方式在房租周期到期前15天、10天、5天通知您缴纳房租，请按规定时间内缴纳各项费用，延期支付将会产生滞纳金；\n
+        10、如果发现可疑人员，请及时通知保安或者工作人员进行检查处理；\n
+        11、违反《乐家小屋租客公约》的乐家客，乐家有责任提醒改正，提醒超过三次仍不听劝阻的，乐家小屋有权清退。\n
+        12、本公约最终解释权归武汉现代乐家酒店管理有限公司所有。
+</string>
+
+    <string name="read_and_agree">已阅读并同意</string>
+    <string name="lejia_rent_treaty">《乐家租期公约》</string>
+
+    <string name="sign_hint_name">请输入您的姓名</string>
+    <string name="sign_hint_phone">请输入您的预留手机号</string>
+    <string name="sign_hint_id">请输入您的身份证</string>
+    <string name="sign_hint_code">请输入验证码</string>
+    <string name="sign_code">未检测到手机号码</string>
+
+    <string name="sign_hint_invalid_phone">请输入正确的手机号码</string>
+    <string name="sign_hint_invalid_id">请输入正确的身份证号码</string>
+    <string name="sign_hint_invalid_name">请输入正确的姓名，不包括特殊字符</string>
+    <string name="sign_choose_sex">选择性别</string>
+    <string name="sign_hint_industry">请输入您的行业</string>
+    <string name="sign_hint_company">请输入您的公司名称</string>
+    <string name="sign_hint_company_address">请输入您的公司地址</string>
+    <string name="sign_hint_contact_name">请输入紧急联系人姓名</string>
+    <string name="sign_hint_contact_phone">请输入紧急联系人电话</string>
+    <string name="sign_hint_contact_relation">与紧急联系人关系</string>
+    <string name="sign_hint_agree_contract">请阅读并同意乐家租期公约</string>
+    <string name="sign_pay_details">查看缴费明细 》</string>
+    <string name="sign_pay_now">立即支付</string>
+
+
+    <string name="title_pay_now">在线支付</string>
+
+    <string name="dialog_title_leases">选择租期</string>
+
+    <string name="title_nearby">离我最近</string>
+    <string name="service_rent">房租</string>
+    <string name="service_rent_slogan">线上生成，付款轻松</string>
+    <string name="service_hydroelectric">水电</string>
+    <string name="service_hydroelectric_slogan">按时提醒，信息透明</string>
+    <string name="service_repair">维修</string>
+    <string name="service_repair_slogan">一键申请，省时省心</string>
+    <string name="service_question">常见问题</string>
+    <string name="service_complaint">投诉建议</string>
+    <string name="service_not_settled">暂未入住</string>
+
+
+    <string name="title_other_profile">其他资料</string>
+    <string name="logout">退出登录</string>
+    <string name="title_alter_nickname">修改昵称</string>
+    <string name="title_share_panel">分享到</string>
+    <string name="share_platform_qq">QQ</string>
+    <string name="share_platform_qzone">QQ空间</string>
+    <string name="share_platform_wx">微信</string>
+    <string name="share_platform_wx_circle">朋友圈</string>
+    <string name="menu_message">消息</string>
+    <string name="menu_share">分享</string>
+
+    <string name="sign_detail">签约详情</string>
+
+    <!--验证相关-->
+    <string name="validate_phone_format_error">请输入正确的手机号</string>
+    <string name="validate_code_length_error">请输入正确的验证码</string>
+
+
+    <string name="title_points">信用积分</string>
+    <string name="title_prize">我的奖品</string>
+    <string name="points">积分</string>
+    <string name="got_points">获得信用积分规则</string>
+    <string name="got_get_points">获得信用积分</string>
+    <string name="got_points_down">扣除信用积分规则</string>
+    <string name="got_down_points">扣除信用积分</string>
+    <string name="menu_detail">明细</string>
+    <string name="title_points_detail">积分明细</string>
+    <string name="title_roommates">室友</string>
+    <string name="roommate_create">新增</string>
+    <string name="title_repairs">报修</string>
+    <string name="title_repair_detail">报修详情</string>
+    <string name="title_questions">常见问题</string>
+    <string name="title_complaint">投诉建议</string>
+
+    <string name="lock"><u>再看看</u></string>
+
+    <string name="rent_state_not">账单未生成</string>
+    <string name="rent_state_payed">缴费正常</string>
+    <string name="rent_state_arrearage">欠费</string>
+    <string name="rent_state_nopay">待缴费</string>
+
+    <string name="pay_way">支付方式</string>
+    <string name="pay_datetime">支付时间</string>
+    <string name="rent">租金</string>
+    <string name="wuye">服务费</string>
+    <string name="room_owner">户主姓名</string>
+    <string name="service_pay_now">立即缴费</string>
+    <string name="month_of_pay">本月需支付</string>
+    <string name="late_fee">滞纳金</string>
+    <string name="discount">优惠</string>
+    <string name="select_pay_way">选择支付方式</string>
+    <string name="make_call">拨打电话</string>
+    <string name="questions">常见问题</string>
+    <string name="water_cost">水费</string>
+    <string name="power_cost">电费</string>
+    <string name="power_cost_price">电费单价</string>
+    <string name="owed">欠费数</string>
+    <string name="start_count">起码</string>
+    <string name="start_count_date">起码抄表时间</string>
+    <string name="end_count_date">止码抄表时间</string>
+    <string name="end_count">止码</string>
+    <string name="is_halve">是否平摊</string>
+    <string name="water_total">水费总额</string>
+    <string name="need_pay">需支付</string>
+    <string name="power_total">电费总额</string>
+    <string name="water_cost_price">水费单价</string>
+    <string name="guarantee1">品质住房</string>
+    <string name="guarantee2">智能家居</string>
+    <string name="guarantee3">社交平台</string>
+    <string name="guarantee">详情</string>
+    <string name="chang_phone">已发送验证码至手机号:</string>
+    <string name="message_list">消息记录</string>
+
+    <string name="event_details">活动详情</string>
+    <string name="sign_name">签名</string>
+    <string name="file_preview">文件预览</string>
+
+    <string name="payed">已缴</string>
+    <string name="pay_period">账单周期</string>
+    <string name="last_pay_time">最后还款日</string>
+    <string name="order_creattime">账单生成时间</string>
+    <string name="pay_time">缴费时间</string>
+    <string name="order_num">订单编号</string>
+
+    <string name="call_manager">联系管家</string>
+
+</resources>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="48dp"
+            android:visibility="gone">
+
+            <include layout="@layout/include_shop_images" />
+
+            <TextView
+                android:id="@+id/shop_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:text="乐家小屋·第一季" />
+
+
+            <TextView
+                android:id="@+id/shop_spec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/textColorSecondary"
+                tools:text="8个户型 | 19㎡起 | 520套房源 " />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorDivider" />
+
+            <com.qixiu.lejia.core.shop.MapContainer
+                android:id="@+id/map_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--地图-->
+                <com.amap.api.maps.TextureMapView
+                    android:id="@+id/map"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginEnd="@dimen/activity_padding"
+                    android:layout_marginStart="@dimen/activity_padding"
+                    android:layout_marginTop="20dp" />
+            </com.qixiu.lejia.core.shop.MapContainer>
+            <!--简介-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="项目简介"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/shop_intro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/textColorSecondary"
+                tools:text="乐家CBD店，光谷，精巧户型，时尚社区。座落光谷高新区，与富士康产业园隔街相望，距光谷大道约60米。业园隔街相望，距光谷大道约60米。" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="户型推荐"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:clipToPadding="false"
+                android:paddingEnd="10dp"
+                android:paddingStart="0dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="服务管家"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <include layout="@layout/include_shop_manager" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <include layout="@layout/include_lejia" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/Toolbar.NoElevation"
+            android:background="@android:color/transparent" />
+
+        <LinearLayout
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/appointment"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/btn_roommate_cancel"
+                android:gravity="center"
+                android:text="预约看房"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/sign"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:text="立即签约"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <Button
+            android:id="@+id/reload"
+            style="@style/Button.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/abc_load_fail"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</FrameLayout>

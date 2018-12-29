@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/point_title"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:drawablePadding="4dp"
+        android:drawableStart="@drawable/fuck_points_lead"
+        android:gravity="center_vertical"
+        android:paddingEnd="@dimen/activity_padding"
+        android:paddingStart="@dimen/activity_padding"
+        android:text="@string/got_get_points"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+</android.support.constraint.ConstraintLayout>

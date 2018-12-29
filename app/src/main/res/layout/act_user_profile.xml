@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:divider="@drawable/divider_offset_start_16"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:id="@+id/alter_avatar"
+                style="@style/Layout.Padding"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/listPreferredItemHeightLarge"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="头像"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/avatar_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_more"
+                    tools:ignore="ContentDescription" />
+
+                <com.qixiu.widget.CircleImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toStartOf="@id/avatar_more"
+                    android:src="@drawable/holder_user_avatar" />
+
+            </RelativeLayout>
+
+            <com.qixiu.widget.LineControllerView
+                android:id="@+id/nickname"
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:textPrimary="昵称"
+                app:textPrimarySize="16sp"
+                app:textSecondary="ZZZLONG"
+                app:textSecondarySize="14sp" />
+
+            <com.qixiu.widget.LineControllerView
+                android:id="@+id/other"
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:textPrimary="其他资料"
+                app:textPrimarySize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:divider="@drawable/divider_offset_start_16"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top">
+
+            <com.qixiu.widget.LineControllerView
+                android:id="@+id/real"
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:textPrimary="完善信息"
+                app:textPrimarySize="16sp" />
+
+            <com.qixiu.widget.LineControllerView
+                android:id="@+id/qualification"
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:textPrimary="资质信息"
+                app:textPrimarySize="16sp" />
+
+            <com.qixiu.widget.LineControllerView
+                android:id="@+id/changePhone"
+                style="@style/LineControllerView.ShowArrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:textPrimary="变更手机号"
+                app:textPrimarySize="16sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:elevation="2dp"
+            android:gravity="center"
+            android:text="@string/logout"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

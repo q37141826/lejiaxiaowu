@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingLeft="@dimen/margin20dp"
+    android:paddingRight="@dimen/margin20dp"
+    android:layout_height="@dimen/margin40dp">
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_centerVertical="true"
+        style="@style/normal_text"
+        android:text="说明" />
+    <TextView
+        android:id="@+id/textViewValue"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        style="@style/normal_text"
+        android:text="值" />
+</RelativeLayout>
