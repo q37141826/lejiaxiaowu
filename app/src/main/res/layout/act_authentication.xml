@@ -132,6 +132,7 @@
                     app:layout_constraintTop_toBottomOf="@id/edit_sex" />
 
                 <EditText
+                    android:visibility="gone"
                     android:id="@+id/edit_code"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
@@ -150,6 +151,7 @@
                     app:layout_constraintTop_toBottomOf="@id/edit_id" />
 
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/btn_code"
                     android:layout_width="90dp"
                     android:layout_height="36dp"

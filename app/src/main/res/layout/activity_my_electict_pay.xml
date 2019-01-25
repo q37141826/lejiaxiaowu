@@ -34,6 +34,7 @@
                 android:textColor="@color/textColorPrimary" />
 
             <EditText
+                android:id="@+id/edittextMoney"
                 android:background="@color/white"
                 android:inputType="number"
                 android:layout_width="match_parent"
@@ -44,6 +45,7 @@
         </LinearLayout>
 
         <Button
+            android:onClick="gopay"
             android:id="@+id/btnCharge"
             style="@style/Button.Default"
             android:layout_alignParentBottom="true"

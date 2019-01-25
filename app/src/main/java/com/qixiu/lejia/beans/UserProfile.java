@@ -37,6 +37,17 @@ public class UserProfile implements Parcelable {
 
     private String user_tel;
 
+    @SerializedName("identified")
+    private String identified;
+
+    public String getIdentified() {
+        return identified;
+    }
+
+    public void setIdentified(String identified) {
+        this.identified = identified;
+    }
+
     public String getUser_tel() {
         return user_tel;
     }
@@ -109,6 +120,9 @@ public class UserProfile implements Parcelable {
         this.maritalStatus = maritalStatus;
     }
 
+    public UserProfile() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -125,9 +139,7 @@ public class UserProfile implements Parcelable {
         dest.writeString(this.revenue);
         dest.writeString(this.maritalStatus);
         dest.writeString(this.user_tel);
-    }
-
-    public UserProfile() {
+        dest.writeString(this.identified);
     }
 
     protected UserProfile(Parcel in) {
@@ -140,9 +152,10 @@ public class UserProfile implements Parcelable {
         this.revenue = in.readString();
         this.maritalStatus = in.readString();
         this.user_tel = in.readString();
+        this.identified = in.readString();
     }
 
-    public static final Parcelable.Creator<UserProfile> CREATOR = new Parcelable.Creator<UserProfile>() {
+    public static final Creator<UserProfile> CREATOR = new Creator<UserProfile>() {
         @Override
         public UserProfile createFromParcel(Parcel source) {
             return new UserProfile(source);

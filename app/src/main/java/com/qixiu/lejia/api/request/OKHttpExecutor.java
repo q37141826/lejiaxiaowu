@@ -36,7 +36,7 @@ public class OKHttpExecutor {
 
         @Override
         public void onError(Call call, Exception e, int i) {
-            Log.e("LOGCAT",e.getMessage());
+            Log.e("LOGCAT", e.getMessage());
             OKHttpUIUpdataListener okHttpUIUpdataListener = mOkHttpUIUpdataListenerWeakReference.get();
 
             if (okHttpUIUpdataListener != null) {
@@ -47,7 +47,7 @@ public class OKHttpExecutor {
 
         @Override
         public void onResponse(String s, int i) {
-            Log.e("data",s);
+            Log.e("data", s);
             OKHttpUIUpdataListener okHttpUIUpdataListener = mOkHttpUIUpdataListenerWeakReference.get();
             if (okHttpUIUpdataListener != null && baseBean != null) {
                 Gson gson = new Gson();

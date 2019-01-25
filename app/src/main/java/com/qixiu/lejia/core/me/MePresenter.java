@@ -10,6 +10,7 @@ import com.qixiu.lejia.app.LoginStatus;
 import com.qixiu.lejia.beans.NoReadMessage;
 import com.qixiu.lejia.beans.resp.MeResp;
 import com.qixiu.lejia.core.me.sign.MyElectictPayActivity;
+import com.qixiu.lejia.core.me.sign.MyElectricPayFirstActivity;
 import com.qixiu.lejia.mvp.AbsCallPresenter;
 import com.qixiu.lejia.mvp.BaseView;
 
@@ -71,7 +72,7 @@ class MePresenter extends AbsCallPresenter implements MeContract.Presenter {
 //         String fileName="TBS测试.docx";
 //         String fileUrl="https://raw.githubusercontent.com/yangxch/Resources/master/test.docx";//远程文档地址
 //        FilePreviewActivity.actionStart(context,fileUrl,fileName,FilePreviewActivity.class);
-        MyElectictPayActivity.start(context,MyElectictPayActivity.class);
+        MyElectictPayActivity.start(context,MyElectricPayFirstActivity.class);
     }
 
     @Override

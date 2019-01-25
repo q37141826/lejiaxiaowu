@@ -18,6 +18,8 @@ import com.qixiu.lejia.R;
 
 import java.util.List;
 
+import static com.qixiu.lejia.core.sign.BaseSignPayActivity.DATA;
+
 /**
  * Created by Long on 2018/4/20
  * <pre>
@@ -102,6 +104,7 @@ public class BaseToolbarAct extends BaseLoadIndicatorAct {
 
     public static void start(Context context, Class activity, Parcelable parcelable) {
         Intent intent = new Intent(context, activity);
+        intent.putExtra(DATA,parcelable);
         context.startActivity(intent);
     }
 

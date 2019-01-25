@@ -11,5 +11,6 @@ public final class PrefsKeys {
     public static final String KEY_TOKEN = "TOKEN";
     public static final String KEY_FIRST_RUN = "FIRST_RUN";
     public static final String KEY_NAME = "KEY_NAME";
+    public static final String IS_IDENTIFYED = "IS_IDENTIFYED";
 
 }

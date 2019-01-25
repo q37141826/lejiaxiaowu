@@ -203,7 +203,7 @@
             android:theme="@style/AppTheme.NoActionBar.ImagePreview" />
         <activity
             android:name=".core.me.profile.CompleteProfileAct"
-            android:label="完善信息"
+            android:label="实名认证"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
@@ -408,7 +408,8 @@
             android:name=".core.me.sign.SignNameActivity"
             android:label="@string/sign_name" />
         <activity android:name=".core.me.sign.PdfFilePrefviewActivity" />
-        <activity android:name=".core.me.sign.MyElectictPayActivity"></activity>
+        <activity android:name=".core.me.sign.MyElectictPayActivity" />
+        <activity android:name=".core.me.sign.MyElectricPayFirstActivity"></activity>
     </application>
 
 </manifest>

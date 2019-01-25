@@ -8,7 +8,7 @@ import java.util.List;
  * Created by my on 2018/12/28.
  */
 
-public class ElecPayBean extends BaseBean<List<ElecPayBean.OBean>>{
+public class ElecPayInnerBean extends BaseBean<List<ElecPayInnerBean.OBean>>{
 
     public static class OBean{
         String name;

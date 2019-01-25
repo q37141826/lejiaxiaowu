@@ -21,6 +21,8 @@ import com.qixiu.lejia.beans.RealProfile;
 import com.qixiu.lejia.core.CodeContract;
 import com.qixiu.lejia.core.CodePresenter;
 import com.qixiu.lejia.databinding.ActCompleteProfileBinding;
+import com.qixiu.lejia.prefs.Prefs;
+import com.qixiu.lejia.prefs.PrefsKeys;
 import com.qixiu.lejia.utils.RegexUtils;
 
 /**
@@ -174,6 +176,7 @@ public class CompleteProfileAct extends BaseToolbarAct implements CodeContract.V
         call.enqueue(new RequestCallback<String>(this) {
             @Override
             protected void onSuccess(String o) {
+                Prefs.put(PrefsKeys.IS_IDENTIFYED,"1");
                 finish();
             }
         });
@@ -189,6 +192,16 @@ public class CompleteProfileAct extends BaseToolbarAct implements CodeContract.V
                 mBinding.editPhone.setText(profile.getPhone());
                 mBinding.sex.setText(profile.getSex());
                 mBinding.editId.setText(profile.getId());
+                if ("1".equals(profile.getIdentified())) {
+                    mBinding.editName.setEnabled(false);
+                    mBinding.editPhone.setEnabled(false);
+                    mBinding.sex.setEnabled(false);
+                    mBinding.editId.setEnabled(false);
+                    mBinding.editCode.setVisibility(View.GONE);
+                    mBinding.btnCode.setVisibility(View.GONE);
+                    mBinding.next.setVisibility(View.GONE);
+                }
+
             }
 
         });
@@ -196,5 +209,11 @@ public class CompleteProfileAct extends BaseToolbarAct implements CodeContract.V
 
     private void showToast(int s) {
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setTitle("实名认证");
     }
 }

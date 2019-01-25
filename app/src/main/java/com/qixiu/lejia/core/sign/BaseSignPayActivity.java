@@ -47,6 +47,19 @@ public abstract class BaseSignPayActivity extends BaseToolbarAct implements PayU
         mPayUtils.startPay(payWay, 1, roomId, money, lease, periods, firstPay, monthlyPay,
                 null, null);
     }
+    /**
+     * 开始支付
+     *
+     * @param payWay 支付方式
+     * @param roomId 房间ID
+     * @param money  金额
+     */
+    @SuppressWarnings("unchecked")
+    protected void startPay(@PayUtils.PayWay int payWay,int type, String roomId, String money, int lease, int periods,
+                            String firstPay, String monthlyPay) {
+        mPayUtils.startPay(payWay, type, roomId, money, lease, periods, firstPay, monthlyPay,
+                null, null);
+    }
 
 
     @Override

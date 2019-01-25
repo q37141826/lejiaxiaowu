@@ -18,8 +18,11 @@ import android.widget.Toast;
 
 import com.qixiu.lejia.BuildConfig;
 import com.qixiu.lejia.R;
+import com.qixiu.lejia.api.AppApi;
+import com.qixiu.lejia.api.RequestCallback;
 import com.qixiu.lejia.app.LoginStatus;
 import com.qixiu.lejia.base.BaseActivity;
+import com.qixiu.lejia.beans.RealProfile;
 import com.qixiu.lejia.common.Events;
 import com.qixiu.lejia.core.version.NewVersionDialog;
 import com.qixiu.lejia.core.version.Version;
@@ -32,6 +35,8 @@ import com.umeng.analytics.MobclickAgent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+
+import retrofit2.Call;
 
 public class MainActivity extends BaseActivity implements VersionCheckContract.View {
 
@@ -170,7 +175,21 @@ public class MainActivity extends BaseActivity implements VersionCheckContract.V
         //动态权限申请
         if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        }else {
+            //保存是否实名认证状态
+            saveIdentifyState();
         }
+    }
+
+    private void saveIdentifyState() {
+        //保存是否实名认证状态
+        Call call = AppApi.get().realProfile(LoginStatus.getToken());
+        call.enqueue(new RequestCallback<RealProfile>() {
+            @Override
+            protected void onSuccess(RealProfile profile) {
+                    Prefs.put(PrefsKeys.IS_IDENTIFYED, profile.getIdentified());
+            }
+        });
     }
 
     @Override
@@ -178,6 +197,7 @@ public class MainActivity extends BaseActivity implements VersionCheckContract.V
         switch (requestCode) {
             case 1:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    saveIdentifyState();
                 } else {
                     Toast.makeText(this, "你拒绝了权限申请，无法预览合同等文件", Toast.LENGTH_SHORT).show();
                 }

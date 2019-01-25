@@ -263,7 +263,7 @@ public class WebActivity extends BaseWebActivity implements AliPay.AliPayResultC
                         ToastUtil.toast(c_codeBean.getM());
                     }
                 });
-                okHttpRequestModel.okhHttpPost("http://hoperf.whtkl.cn//Home/Life/downloadContract", map, new BaseBean());
+                okHttpRequestModel.okhHttpPost(BuildConfig.BASE_URL+"/Home/Life/downloadContract", map, new BaseBean());
             } else {
                 period = ONE;
                 WebActivity.this.startActivity(json);
@@ -354,7 +354,7 @@ public class WebActivity extends BaseWebActivity implements AliPay.AliPayResultC
                     public void onSuccess(Object data, int i) {
                         if (data instanceof MaintainBean) {
                             MaintainBean bean = (MaintainBean) data;
-                            PersonalSignPayAct.start(WebActivity.this, bean.getO().getSd_endtime(), finalSd_id);
+                            PersonalSignPayAct.start(WebActivity.this, bean.getO().getSd_endtime(), finalSd_id,"4");
                         }
                     }
 

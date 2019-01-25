@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.qixiu.lejia.core.login.LoginActivity;
+import com.qixiu.lejia.core.me.profile.CompleteProfileAct;
 import com.qixiu.lejia.prefs.Prefs;
 import com.qixiu.lejia.prefs.PrefsKeys;
 import com.umeng.analytics.MobclickAgent;
@@ -34,7 +35,7 @@ public final class LoginStatus {
             instance.token = Prefs.getString(PrefsKeys.KEY_TOKEN);
         }
         return instance.token;//todo 测试的时候改变一下这个地方
-//        return 2725+"";
+//        return 2649+"";
     }
 
     /*登录成功*/
@@ -82,5 +83,18 @@ public final class LoginStatus {
         return true;
     }
 
+    //验证登录，没有登录跳转登录界面
+    public static void verifiedIdentified(Context context) {
+        if (!"1".equals(Prefs.getString(PrefsKeys.IS_IDENTIFYED))) {
+            CompleteProfileAct.start(context);
+        }
+    }
+
+    public static boolean isVerified(){
+        if (!"1".equals(Prefs.getString(PrefsKeys.IS_IDENTIFYED))) {
+           return false;
+        }
+        return true;
+    }
 
 }

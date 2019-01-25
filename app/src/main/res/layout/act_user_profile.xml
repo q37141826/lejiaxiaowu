@@ -104,7 +104,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                app:textPrimary="完善信息"
+                app:textPrimary="实名认证"
                 app:textPrimarySize="16sp" />
 
             <com.qixiu.widget.LineControllerView

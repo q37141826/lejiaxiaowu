@@ -19,6 +19,16 @@ public class RealProfile {
     @SerializedName("ud_identity")
     private String id;
 
+    private String identified;//0表示没有认证，1表示认证过
+
+    public String getIdentified() {
+        return identified;
+    }
+
+    public void setIdentified(String identified) {
+        this.identified = identified;
+    }
+
     public String getRealName() {
         return realName;
     }

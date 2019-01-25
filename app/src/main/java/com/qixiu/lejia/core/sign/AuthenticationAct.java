@@ -11,13 +11,14 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.qixiu.lejia.R;
-import com.qixiu.lejia.api.RequestCallback;
 import com.qixiu.lejia.api.AppApi;
+import com.qixiu.lejia.api.RequestCallback;
 import com.qixiu.lejia.app.LoginStatus;
 import com.qixiu.lejia.base.BaseToolbarAct;
 import com.qixiu.lejia.beans.RealProfile;
 import com.qixiu.lejia.core.CodeContract;
 import com.qixiu.lejia.core.CodePresenter;
+import com.qixiu.lejia.core.me.profile.CompleteProfileAct;
 import com.qixiu.lejia.databinding.ActAuthenticationBinding;
 import com.qixiu.lejia.utils.RegexUtils;
 
@@ -80,6 +81,9 @@ public class AuthenticationAct extends BaseToolbarAct implements CodeContract.Vi
 
 
         loadRealProfile();
+
+        //判断是否认证了
+        LoginStatus.verifiedIdentified(getContext());
     }
 
     @Override
@@ -132,17 +136,16 @@ public class AuthenticationAct extends BaseToolbarAct implements CodeContract.Vi
             return;
         }
 
-        //验证验证码
-        String code = mBinding.editCode.getText().toString().trim();
-        if (TextUtils.isEmpty(code)) {
-            showToast(R.string.sign_hint_code);
-            return;
-        }
+//        //验证验证码
+//        String code = mBinding.editCode.getText().toString().trim();
+//        if (TextUtils.isEmpty(code)) {
+//            showToast(R.string.sign_hint_code);
+//            return;
+//        }
 
         //所有验证通过
-
-        upload(name, phone, id, code);
-
+//        upload(name, phone, id, code);
+        upload(name, phone, id, "");
     }
 
     private void upload(String name, String phone, String id, String code) {
@@ -153,7 +156,7 @@ public class AuthenticationAct extends BaseToolbarAct implements CodeContract.Vi
             @Override
             protected void onSuccess(String o) {
                 finish();
-                QualificationsAct.start(AuthenticationAct.this, mUserType,getIntent().getStringExtra("shopId"));
+                QualificationsAct.start(AuthenticationAct.this, mUserType, getIntent().getStringExtra("shopId"));
             }
         });
     }
@@ -164,12 +167,36 @@ public class AuthenticationAct extends BaseToolbarAct implements CodeContract.Vi
         call.enqueue(new RequestCallback<RealProfile>() {
             @Override
             protected void onSuccess(RealProfile profile) {
+                if (TextUtils.isEmpty(profile.getRealName()) || TextUtils.isEmpty(profile.getPhone()) || TextUtils.isEmpty(profile.getId())) {
+                    new AlertDialog.Builder(getContext())
+                            .setTitle("")
+                            .setMessage("请进行实名认证")
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                                CompleteProfileAct.start(getContext());
+                            })
+                            .setNegativeButton(android.R.string.cancel, ((dialog, which) -> {
+                                finish();
+                            }))
+                            .show();
+                    return;
+                }
                 mBinding.editName.setText(profile.getRealName());
                 mBinding.editPhone.setText(profile.getPhone());
                 mBinding.sex.setText(profile.getSex());
                 mBinding.editId.setText(profile.getId());
+                setEnable();//已经认证的不准改资料
             }
         });
+    }
+
+    public void setEnable() {
+        if (!TextUtils.isEmpty(mBinding.editId.getText().toString()) && !TextUtils.isEmpty(mBinding.editName.getText().toString()) &&
+                !TextUtils.isEmpty(mBinding.editPhone.getText().toString()) && !TextUtils.isEmpty(mBinding.sex.getText().toString())) {
+            mBinding.editId.setEnabled(false);
+            mBinding.editName.setEnabled(false);
+            mBinding.editPhone.setEnabled(false);
+            mBinding.editSex.setEnabled(false);
+        }
     }
 
 
@@ -204,5 +231,15 @@ public class AuthenticationAct extends BaseToolbarAct implements CodeContract.Vi
 
     private void showToast(int s) {
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        //是否已经实名认证
+        if(!LoginStatus.isVerified()){
+            finish();
+        }
     }
 }

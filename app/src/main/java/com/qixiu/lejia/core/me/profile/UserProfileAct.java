@@ -61,9 +61,10 @@ public class UserProfileAct extends BaseWhiteStateBarActivity implements Observe
         context.startActivity(starter);
     }
 
-    public static void start(Context context,Intent intent ) {
+    public static void start(Context context, Intent intent) {
         context.startActivity(intent);
     }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,7 +136,7 @@ public class UserProfileAct extends BaseWhiteStateBarActivity implements Observe
                     .setNegativeButton(android.R.string.cancel, null)
                     .show();
         });
-      //  mBinding.changePhone.setOnClikcL
+        //  mBinding.changePhone.setOnClikcL
 
 
     }
@@ -210,6 +211,11 @@ public class UserProfileAct extends BaseWhiteStateBarActivity implements Observe
         ImageBindingAdapters.bindImage(mBinding.avatar, profile.getAvatar(), d, null, d);
         mBinding.nickname.setSecondaryText(profile.getNickName());
         mBinding.changePhone.setSecondaryText(userProfile.getUser_tel());
+        if (LoginStatus.isVerified()) {
+            mBinding.real.setSecondaryText("已认证");
+        } else {
+            mBinding.real.setSecondaryText("未认证");
+        }
     }
 
 

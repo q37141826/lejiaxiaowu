@@ -45,6 +45,7 @@ android {
     }
 
     compileSdkVersion 26
+    buildToolsVersion "27.0.2"
     defaultConfig {
         applicationId "com.qixiu.lejia"
         minSdkVersion 21

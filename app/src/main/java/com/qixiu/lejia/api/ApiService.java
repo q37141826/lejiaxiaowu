@@ -210,7 +210,7 @@ public interface ApiService {
      */
     @POST("Home/Sign/usersignthree")
     @FormUrlEncoded
-    Call<BaseResponse<UserLevel>> userLevel(@Field("uid") String uid,@Field("st_id") String stId);
+    Call<BaseResponse<UserLevel>> userLevel(@Field("uid") String uid, @Field("st_id") String stId);
 
     /**
      * 用户签约第四步
@@ -614,21 +614,19 @@ public interface ApiService {
     @FormUrlEncoded
     Call<BaseResponse<NoReadMessage>> getNoReadMessage(@Field("uid") String uid);
 
-      /**
+    /**
      * 获取消息列表
      */
     @POST("/Home/UserCenter/noticelist")
     @FormUrlEncoded
-    Call <BaseResponse<MessageListBean>>getMessageList(@Field("uid") String uid);
-
-
+    Call<BaseResponse<MessageListBean>> getMessageList(@Field("uid") String uid);
 
 
     /**
      * 修改手机号提交这一步骤
      * user_tel	用户旧的手机号码//接收短信验证码的手机号码
-     *repleace_tel用户更换之后的手机号
-     *code	验证码
+     * repleace_tel用户更换之后的手机号
+     * code	验证码
      * type  验证码类型
      */
 

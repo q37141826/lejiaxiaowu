@@ -34,6 +34,8 @@ import java.util.Map;
 
 import okhttp3.Call;
 
+import static android.provider.CallLog.Calls.TYPE;
+
 /**
  * Created by Long on 2018/4/28
  * <pre>
@@ -58,6 +60,7 @@ public class PersonalSignPayAct extends BaseSignPayActivity {
     //签约ID
     private String mSignedId;
     private String matainTime;
+    private String pay_type;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, PersonalSignPayAct.class);
@@ -68,9 +71,10 @@ public class PersonalSignPayAct extends BaseSignPayActivity {
         starter.putExtra(DATA,time);
         context.startActivity(starter);
     }
-    public static void start(Context context,String time,String id) {
+    public static void start(Context context,String time,String id,String type) {
         Intent starter = new Intent(context, PersonalSignPayAct.class);
         starter.putExtra(DATA,time);
+        starter.putExtra(TYPE,type);
         context.startActivity(starter);
     }
 
@@ -79,7 +83,8 @@ public class PersonalSignPayAct extends BaseSignPayActivity {
         super.onCreate(savedInstanceState);
         mBinding = ActPersonSignPayBinding.inflate(getLayoutInflater());
         setContentView(mBinding.getRoot());
-
+        //如果是续租，那么标记一个type
+        pay_type = getIntent().getStringExtra(TYPE);
         //租期开始时间
         mBinding.startDate.setText(DateFormat.format(DatetimeConstants.YTD_CN, new Date()));
         matainTime = getIntent().getStringExtra(DATA);
@@ -141,8 +146,14 @@ public class PersonalSignPayAct extends BaseSignPayActivity {
             showErrorMsg("请选择租期");
             return;
         }
-        super.startPay(payWay, mRoomId, rent.getFirstPay(), mLease, mPeriods, rent.getFirstPay(),
-                rent.getMonthlyPay());
+        if(!TextUtils.isEmpty(pay_type)){
+            int type=Integer.parseInt(pay_type);
+            super.startPay(payWay, type,mRoomId, rent.getFirstPay(), mLease, mPeriods, rent.getFirstPay(),
+                    rent.getMonthlyPay());
+        }else {
+            super.startPay(payWay, mRoomId, rent.getFirstPay(), mLease, mPeriods, rent.getFirstPay(),
+                    rent.getMonthlyPay());
+        }
     }
 
     /**
