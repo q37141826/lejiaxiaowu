@@ -408,8 +408,11 @@
             android:name=".core.me.sign.SignNameActivity"
             android:label="@string/sign_name" />
         <activity android:name=".core.me.sign.PdfFilePrefviewActivity" />
-        <activity android:name=".core.me.sign.MyElectictPayActivity" />
-        <activity android:name=".core.me.sign.MyElectricPayFirstActivity"></activity>
+        <activity
+            android:name=".core.me.sign.MyElectictPayActivity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity android:name=".core.me.sign.MyElectricPayFirstActivity" />
+        <activity android:name=".core.me.sign.ChargeRecordActivity"></activity>
     </application>
 
 </manifest>

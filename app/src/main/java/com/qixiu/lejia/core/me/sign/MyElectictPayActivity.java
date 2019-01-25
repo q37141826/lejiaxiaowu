@@ -24,8 +24,8 @@ import com.qixiu.lejia.api.request.C_CodeBean;
 import com.qixiu.lejia.api.request.OKHttpRequestModel;
 import com.qixiu.lejia.api.request.OKHttpUIUpdataListener;
 import com.qixiu.lejia.app.LoginStatus;
+import com.qixiu.lejia.common.PayUtils;
 import com.qixiu.lejia.core.service.BaseServicePayAct;
-import com.qixiu.lejia.core.service.bill.BillAct;
 import com.qixiu.lejia.utils.ToastUtil;
 
 import java.util.ArrayList;
@@ -79,13 +79,7 @@ public class MyElectictPayActivity extends BaseServicePayAct implements OKHttpUI
         btnCharge = view.findViewById(R.id.btnCharge);
         setTitle("生活缴费");
         getRightText().setVisibility(View.VISIBLE);
-        getRightText().setText("充值记录");
-        getRightText().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BillAct.start(getContext());
-            }
-        });
+
 
 
     }
@@ -103,6 +97,7 @@ public class MyElectictPayActivity extends BaseServicePayAct implements OKHttpUI
             return;
         }
         showPop(edittextMoney.getText().toString());
+//        showPayWaysDialog(btnCharge);
     }
 
     @Override
@@ -120,17 +115,18 @@ public class MyElectictPayActivity extends BaseServicePayAct implements OKHttpUI
             bean.setName("房号");
             bean.setValue(payDetailsBean.getO().getRo_number());
             datas.add(bean);
-            bean = new ElecPayInnerBean.OBean();
-            bean.setName("剩余电量");
-            bean.setValue(payDetailsBean.getO().getLeft() + "");
-            datas.add(bean);
+//            bean = new ElecPayInnerBean.OBean();
+//            bean.setName("剩余电量");
+//            bean.setValue(payDetailsBean.getO().getLeft() + "");
+//            datas.add(bean);
             bean = new ElecPayInnerBean.OBean();
             bean.setName("当前可用余额");
-            bean.setValue("0");
+            double money = payDetailsBean.getO().getLeft() * getPrice(payDetailsBean.getO().getElectricity_fees());
+            bean.setValue(money >= 0 ? money + "" : 0 + "");
             datas.add(bean);
             bean = new ElecPayInnerBean.OBean();
             bean.setName("当前欠费金额");
-            bean.setValue("0");
+            bean.setValue(money >= 0 ? 0 + "" : money + "");
             datas.add(bean);
             adapter.refreshData(datas);
         }
@@ -192,6 +188,7 @@ public class MyElectictPayActivity extends BaseServicePayAct implements OKHttpUI
 
     //
     public void showPop(String money) {
+
         //根据字数计算每个条目的长度
         contentView = View.inflate(getContext(), R.layout.pop_pay, null);
         PopupWindow popupWindow = new PopupWindow(contentView);
@@ -216,12 +213,20 @@ public class MyElectictPayActivity extends BaseServicePayAct implements OKHttpUI
             @Override
             public void onClick(View v) {
                 setPayState(1);
+                mSelectedPayWay = PayUtils.PayWay.ALI;
             }
         });
-        relative_alipay_pop.setOnClickListener(new View.OnClickListener() {
+        relative_weichat_pop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setPayState(2);
+                mSelectedPayWay = PayUtils.PayWay.WX;
+            }
+        });
+        btnPaySoon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startPay(edittextMoney.getText().toString(), bean.getEquipment_uuid(), bean.getStore_id(), bean.getRoom_id());
             }
         });
     }
@@ -235,5 +240,16 @@ public class MyElectictPayActivity extends BaseServicePayAct implements OKHttpUI
             imageViewAliSelect.setImageResource(R.mipmap.no_selected2x);
         }
     }
+
+
+    public double getPrice(String str) {
+        double price = 0;
+        try {
+            price = Double.parseDouble(str);
+        } catch (Exception e) {
+        }
+        return price;
+    }
+
 
 }

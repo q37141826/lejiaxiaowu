@@ -81,6 +81,11 @@ public abstract class BaseServicePayAct extends BaseWhiteStateBarActivity implem
                 null, null, rentBillId, weBillId);
     }
 
+    //充值
+    protected void startPay(@NonNull String money,
+                            @NonNull String equipement_uuid, @NonNull String store_id, @NonNull String room_id) {
+        mPayUtils.startPay(mSelectedPayWay, money, equipement_uuid, store_id, room_id);
+    }
 
     /**
      * 显示选择支付方式Dialog

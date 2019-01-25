@@ -117,6 +117,37 @@ public class PayUtils implements AliPay.AliPayResultCallback, Observer {
     }
 
 
+
+
+
+    public void startPay(@PayWay int payWay, String money,String equipement_uuid,String store_id,String room_id) {
+        if (payWay == PayWay.WX) {
+            mCall = AppApi.get().wxPayElectric(LoginStatus.getToken(), money,equipement_uuid,store_id,room_id, PayWay.WX);
+        } else {
+            mCall = AppApi.get().aliPayElectric(LoginStatus.getToken(), money,equipement_uuid,store_id,room_id, PayWay.ALI);
+        }
+
+        mCall.enqueue(new RequestCallback(mIndicatorView) {
+            @Override
+            protected void onSuccess(Object o) {
+                if (o instanceof WXPayInfo) {
+                    WXPayInfo info = (WXPayInfo) o;
+                    startWXPay(WXPayInfo.toPayReq(info));
+                } else if (o instanceof String) {
+                    startAliPay((String) o);
+                }
+            }
+
+            @Override
+            protected void onFailure(ResponseError error) {
+                super.onFailure(error);
+                onPayFailure();
+            }
+        });
+    }
+
+
+
     private void startWXPay(PayReq payReq) {
         boolean result = payReq.checkArgs();
         if (!result) {

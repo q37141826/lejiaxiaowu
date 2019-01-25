@@ -103,11 +103,11 @@ public class BillAct extends BaseWhiteStateBarActivity {
                 //UI有变更，需要变化背景
                 for (int i = 0; i < expenditures.size(); i++) {
                     //如果是第一个，那么背景设置为白色，圆角再上，如果是最后一个圆角在下
-                    if(i==0){
+                    if (i == 0) {
                         expenditures.get(i).setPosition(1);
-                    }else if(i== expenditures.size()-1){
+                    } else if (i == expenditures.size() - 1) {
                         expenditures.get(i).setPosition(-1);
-                    }else {
+                    } else {
                         expenditures.get(i).setPosition(0);
                     }
                     items.add(new BillHistoryItem(expenditures.get(i)));

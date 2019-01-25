@@ -53,6 +53,19 @@ public class MyElectricPayFirstActivity extends BaseWhiteStateBarActivity implem
                 requestData();
             }
         });
+        //设置右边
+        setRightText();
+    }
+
+    private void setRightText() {
+        getRightText().setText("充值记录");
+        getRightText().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChargeRecordActivity.start(getContext(), ChargeRecordActivity.class);
+            }
+        });
+        getRightText().setVisibility(View.VISIBLE);
     }
 
     private void requestData() {

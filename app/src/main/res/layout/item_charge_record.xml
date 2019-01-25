@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/margin100dp"
+    android:background="@color/white"
+    android:paddingLeft="@dimen/margin15dp"
+    android:paddingRight="@dimen/margin15dp">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/electric" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            style="@style/normal_text"
+            android:layout_marginLeft="@dimen/margin50dp"
+            android:text="标题" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin50dp"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewRoomId"
+                style="@style/normal_text"
+                android:text="房号" />
+
+            <TextView
+                android:id="@+id/textViewPosition"
+                style="@style/normal_text"
+                android:layout_marginLeft="@dimen/margin80dp"
+                android:text="位置" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewTime"
+            style="@style/normal_text"
+            android:layout_marginLeft="@dimen/margin50dp"
+            android:layout_marginTop="@dimen/margin10dp"
+            android:text="位置" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewMoney"
+        style="@style/normal_text"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/margin15dp"
+        android:text="金额" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin0.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/main_back_grey"></View>
+</RelativeLayout>

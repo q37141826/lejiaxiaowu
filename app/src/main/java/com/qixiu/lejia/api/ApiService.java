@@ -347,6 +347,34 @@ public interface ApiService {
                                       @Field("pa_id") String rentBillId,
                                       @Field("hy_id") String weBillId);
 
+
+    /*
+     * 支付宝充值电费
+     * */
+    @POST("Home/Elemeter/elemeter_charge")
+    @FormUrlEncoded
+    Call<BaseResponse<String>> aliPayElectric(@Field("user_id") String user_id,
+                                                @Field("pay_money") String pay_money,
+                                                @Field("equipment_uuid") String equipment_uuid,
+                                                @Field("store_id") String store_id,
+                                                @Field("room_id") String room_id,
+                                                @Field("pay_method") int pay_method);
+
+
+    /*
+    * 微信充值电费
+    * */
+
+    @POST("Home/Elemeter/elemeter_charge")
+    @FormUrlEncoded
+    Call<BaseResponse<WXPayInfo>> wxPayElectric(@Field("user_id") String user_id,
+                                                @Field("pay_money") String pay_money,
+                                                @Field("equipment_uuid") String equipment_uuid,
+                                                @Field("store_id") String store_id,
+                                                @Field("room_id") String room_id,
+                                                @Field("pay_method") int pay_method);
+
+
     @POST("Home/UserCenter/perfectinfo")
     @FormUrlEncoded
     Call<BaseResponse<RealProfile>> realProfile(@Field("uid") String uid);
