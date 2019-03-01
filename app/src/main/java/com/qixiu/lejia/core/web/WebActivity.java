@@ -263,7 +263,7 @@ public class WebActivity extends BaseWebActivity implements AliPay.AliPayResultC
                         ToastUtil.toast(c_codeBean.getM());
                     }
                 });
-                okHttpRequestModel.okhHttpPost(BuildConfig.BASE_URL+"/Home/Life/downloadContract", map, new BaseBean());
+                okHttpRequestModel.okhHttpPost(BuildConfig.BASE_URL + "/Home/Life/downloadContract", map, new BaseBean());
             } else {
                 period = ONE;
                 WebActivity.this.startActivity(json);
@@ -354,7 +354,7 @@ public class WebActivity extends BaseWebActivity implements AliPay.AliPayResultC
                     public void onSuccess(Object data, int i) {
                         if (data instanceof MaintainBean) {
                             MaintainBean bean = (MaintainBean) data;
-                            PersonalSignPayAct.start(WebActivity.this, bean.getO().getSd_endtime(), finalSd_id,"4");
+                            PersonalSignPayAct.start(WebActivity.this, bean.getO().getSd_endtime(), finalSd_id, "4");
                         }
                     }
 
@@ -449,7 +449,7 @@ public class WebActivity extends BaseWebActivity implements AliPay.AliPayResultC
                 if ("3".equals(type)) {
                     handleSignedDetail(map);
                 } else {
-                    Phonebean phonebean=new Gson().fromJson(json,Phonebean.class);
+                    Phonebean phonebean = new Gson().fromJson(json, Phonebean.class);
                     start(this, title, url, isSign, false, phonebean.getSubPhone(), "");
                 }
             }

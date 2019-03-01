@@ -144,7 +144,7 @@ public class MyElectricPayFirstActivity extends BaseWhiteStateBarActivity implem
                     PayListBean.OBean bean = (PayListBean.OBean) mData;
                     textViewProjectName.setText(bean.getStore_name());
                     textViewRoomNum.setText(bean.getRo_number());
-                    textViewSite.setText(bean.getRo_number());
+                    textViewSite.setText(bean.getEquipment_name());
                 }
             }
         }

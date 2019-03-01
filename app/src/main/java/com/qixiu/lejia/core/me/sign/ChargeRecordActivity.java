@@ -56,13 +56,14 @@ public class ChargeRecordActivity extends BaseWhiteStateBarActivity implements O
         XrecyclerViewUtil.setXrecyclerView(recyclerView, this, this, false, 1, null);
         adapter = new ChargeRecordAdapter();
         recyclerView.setAdapter(adapter);
+        requestData();
     }
 
     private void requestData() {
         Map<String, String> map = new HashMap<>();
         map.put("user_id", LoginStatus.getToken());
         map.put("page", page + "");
-        okHttpRequestModel.okhHttpPost(url, map, new BaseBean());
+        okHttpRequestModel.okhHttpPost(url, map, new RecordBean());
     }
 
     @Override

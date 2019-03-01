@@ -28,9 +28,9 @@ public class BindableRecyclerAdapter extends RecyclerView.Adapter<BindableViewHo
     private static final boolean DEBUG = true;
 
     /*notify recyclerView refresh*/
-    private final Handler            mHandler = new Handler();
+    private final Handler mHandler = new Handler();
     /*all the items*/
-    private final List<BindableItem> mItems   = new ArrayList<>();
+    private final List<BindableItem> mItems = new ArrayList<>();
 
     /*footer view*/
     private BindableFooter mBindingFooter;
@@ -124,8 +124,7 @@ public class BindableRecyclerAdapter extends RecyclerView.Adapter<BindableViewHo
 
     private int canClick = 0;
 
-    public void onBindViewHolder()
-    {
+    public void onBindViewHolder() {
         canClick = 1;
     }
 
@@ -145,7 +144,7 @@ public class BindableRecyclerAdapter extends RecyclerView.Adapter<BindableViewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mItemClickListener!=null){
+                if (mItemClickListener != null) {
                     mItemClickListener.onItemClick(position);
                 }
             }
@@ -155,7 +154,7 @@ public class BindableRecyclerAdapter extends RecyclerView.Adapter<BindableViewHo
 
     private OnItemClickListener mItemClickListener;
 
-    public interface OnItemClickListener{
+    public interface OnItemClickListener {
         void onItemClick(int position);
     }
 
@@ -283,8 +282,6 @@ public class BindableRecyclerAdapter extends RecyclerView.Adapter<BindableViewHo
         mItems.addAll(startPosition, items);
         notifyItemRangeInserted(startPosition, items.size());
     }
-
-
 
 
     //用于拖拽

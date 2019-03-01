@@ -81,7 +81,6 @@ public class MyElectictPayActivity extends BaseServicePayAct implements OKHttpUI
         getRightText().setVisibility(View.VISIBLE);
 
 
-
     }
 
 
@@ -188,7 +187,7 @@ public class MyElectictPayActivity extends BaseServicePayAct implements OKHttpUI
 
     //
     public void showPop(String money) {
-
+        mSelectedPayWay = PayUtils.PayWay.WX;//弹窗的默认支付方式
         //根据字数计算每个条目的长度
         contentView = View.inflate(getContext(), R.layout.pop_pay, null);
         PopupWindow popupWindow = new PopupWindow(contentView);
@@ -212,14 +211,14 @@ public class MyElectictPayActivity extends BaseServicePayAct implements OKHttpUI
         relative_alipay_pop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setPayState(1);
+                setPayState(PayUtils.PayWay.ALI);
                 mSelectedPayWay = PayUtils.PayWay.ALI;
             }
         });
         relative_weichat_pop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setPayState(2);
+                setPayState(PayUtils.PayWay.WX);
                 mSelectedPayWay = PayUtils.PayWay.WX;
             }
         });
@@ -232,7 +231,8 @@ public class MyElectictPayActivity extends BaseServicePayAct implements OKHttpUI
     }
 
     public void setPayState(int payState) {
-        if (payState == 1) {
+        mSelectedPayWay = payState;
+        if (payState == PayUtils.PayWay.ALI) {
             imageViewWeichatSelect.setImageResource(R.mipmap.no_selected2x);
             imageViewAliSelect.setImageResource(R.mipmap.select2x);
         } else {
