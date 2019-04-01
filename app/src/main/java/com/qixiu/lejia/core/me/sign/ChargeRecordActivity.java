@@ -13,6 +13,7 @@ import com.qixiu.adapter.myrecycler.RecyclerBaseAdapter;
 import com.qixiu.adapter.myrecycler.RecyclerBaseHolder;
 import com.qixiu.lejia.BuildConfig;
 import com.qixiu.lejia.R;
+import com.qixiu.lejia.api.ApiConstants;
 import com.qixiu.lejia.api.request.BaseBean;
 import com.qixiu.lejia.api.request.C_CodeBean;
 import com.qixiu.lejia.api.request.OKHttpRequestModel;
@@ -81,7 +82,11 @@ public class ChargeRecordActivity extends BaseWhiteStateBarActivity implements O
     public void onSuccess(Object data, int i) {
         if (data instanceof RecordBean) {
             RecordBean bean = (RecordBean) data;
-            adapter.refreshData(bean.getO());
+            if(page==1){
+                adapter.refreshData(bean.getO());
+            }else {
+                adapter.addDatas(bean.getO());
+            }
         }
         recyclerView.loadMoreComplete();
         swipRefresh.setRefreshing(false);
@@ -146,7 +151,7 @@ public class ChargeRecordActivity extends BaseWhiteStateBarActivity implements O
                     textViewRoomId.setText(bean.getRo_number());
                     textViewPosition.setText(bean.getEquipment_name());
                     textViewTime.setText(bean.getPay_time());
-                    textViewMoney.setText(bean.getPay_money());
+                    textViewMoney.setText(ApiConstants.RMB + bean.getPay_money());
                 }
             }
         }

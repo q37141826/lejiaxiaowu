@@ -14,7 +14,7 @@ import io.reactivex.annotations.Nullable;
  * Created by Long on 2018/4/28
  */
 public final class ApiConstants {
-
+    public static final String RMB="¥  ";
 //    public  static String   hostWebUrl="http://lj.lejiaxiaowu.com/ljhouse.app0.001";
     public  static String   hostWebUrl="http://lejia.whtkl.cn/ljhouse.app0.001";
 

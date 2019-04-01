@@ -20,6 +20,7 @@ import com.qixiu.adapter.myrecycler.RecyclerBaseAdapter;
 import com.qixiu.adapter.myrecycler.RecyclerBaseHolder;
 import com.qixiu.lejia.BuildConfig;
 import com.qixiu.lejia.R;
+import com.qixiu.lejia.api.ApiConstants;
 import com.qixiu.lejia.api.request.C_CodeBean;
 import com.qixiu.lejia.api.request.OKHttpRequestModel;
 import com.qixiu.lejia.api.request.OKHttpUIUpdataListener;
@@ -121,11 +122,11 @@ public class MyElectictPayActivity extends BaseServicePayAct implements OKHttpUI
             bean = new ElecPayInnerBean.OBean();
             bean.setName("当前可用余额");
             double money = payDetailsBean.getO().getLeft() * getPrice(payDetailsBean.getO().getElectricity_fees());
-            bean.setValue(money >= 0 ? money + "" : 0 + "");
+            bean.setValue(money >= 0 ? ApiConstants.RMB +money + "" : ApiConstants.RMB+0 + "");
             datas.add(bean);
             bean = new ElecPayInnerBean.OBean();
             bean.setName("当前欠费金额");
-            bean.setValue(money >= 0 ? 0 + "" : money + "");
+            bean.setValue(money >= 0 ?ApiConstants.RMB+ 0 + "" : ApiConstants.RMB+money + "");
             datas.add(bean);
             adapter.refreshData(datas);
         }
