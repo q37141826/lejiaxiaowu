@@ -194,14 +194,13 @@ public class CompleteProfileAct extends BaseToolbarAct implements CodeContract.V
                 mBinding.editId.setText(profile.getId());
                 if ("1".equals(profile.getIdentified())) {
                     mBinding.editName.setEnabled(false);
-                    mBinding.editPhone.setEnabled(false);
                     mBinding.sex.setEnabled(false);
                     mBinding.editId.setEnabled(false);
                     mBinding.editCode.setVisibility(View.GONE);
                     mBinding.btnCode.setVisibility(View.GONE);
                     mBinding.next.setVisibility(View.GONE);
                 }
-
+                mBinding.editPhone.setEnabled(false);
             }
 
         });

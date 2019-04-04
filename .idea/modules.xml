@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-adapter/common-adapter.iml" filepath="$PROJECT_DIR$/common-adapter/common-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-widget/common-widget.iml" filepath="$PROJECT_DIR$/common-widget/common-widget.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lejiaxiaowu.iml" filepath="$PROJECT_DIR$/lejiaxiaowu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tbslib/tbslib.iml" filepath="$PROJECT_DIR$/tbslib/tbslib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thirdparty/thirdparty.iml" filepath="$PROJECT_DIR$/thirdparty/thirdparty.iml" />
+    </modules>
+  </component>
+</project>
