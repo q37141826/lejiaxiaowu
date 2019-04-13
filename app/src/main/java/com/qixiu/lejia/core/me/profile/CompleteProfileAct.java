@@ -200,7 +200,12 @@ public class CompleteProfileAct extends BaseToolbarAct implements CodeContract.V
                     mBinding.btnCode.setVisibility(View.GONE);
                     mBinding.next.setVisibility(View.GONE);
                 }
-                mBinding.editPhone.setEnabled(false);
+                if(TextUtils.isEmpty(profile.getPhone())){
+                    mBinding.editPhone.setEnabled(true);
+                }else {
+                    mBinding.editPhone.setEnabled(false);
+                }
+
             }
 
         });
