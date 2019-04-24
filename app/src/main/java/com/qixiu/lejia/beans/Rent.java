@@ -9,15 +9,6 @@ import com.google.gson.annotations.SerializedName;
  * </pre>
  */
 public class Rent {
-    @SerializedName("ro_long_money")
-    private String ro_long_money;
-    public String getRo_long_money() {
-        return ro_long_money;
-    }
-
-    public void setRo_long_money(String ro_long_money) {
-        this.ro_long_money = ro_long_money;
-    }
 
     @SerializedName("sd_first_pay")
     private String firstPay;

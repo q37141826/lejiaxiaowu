@@ -34,8 +34,8 @@ public final class LoginStatus {
         if (instance.token == null) {
             instance.token = Prefs.getString(PrefsKeys.KEY_TOKEN);
         }
-//        return instance.token;//todo 测试的时候改变一下这个地方
-        return 4060 + "";
+        return instance.token;//todo 测试的时候改变一下这个地方
+//        return 4060 + "";
     }
 
     /*登录成功*/

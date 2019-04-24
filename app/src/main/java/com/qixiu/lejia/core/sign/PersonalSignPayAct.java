@@ -26,6 +26,7 @@ import com.qixiu.lejia.beans.Room;
 import com.qixiu.lejia.common.PayUtils;
 import com.qixiu.lejia.databinding.ActPersonSignPayBinding;
 import com.qixiu.lejia.utils.DatetimeConstants;
+import com.qixiu.lejia.utils.NumUtils;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -60,21 +61,26 @@ public class PersonalSignPayAct extends BaseSignPayActivity {
     //签约ID
     private String mSignedId;
     private String matainTime;
-    private String pay_type;
+    private String pay_type;//4代表续租
+    private PriceBean priceBean;
+    private String monthPrice;
+
 
     public static void start(Context context) {
         Intent starter = new Intent(context, PersonalSignPayAct.class);
         context.startActivity(starter);
     }
-    public static void start(Context context,String time) {
+
+    public static void start(Context context, String time) {
         Intent starter = new Intent(context, PersonalSignPayAct.class);
-        starter.putExtra(DATA,time);
+        starter.putExtra(DATA, time);
         context.startActivity(starter);
     }
-    public static void start(Context context,String time,String id,String type) {
+
+    public static void start(Context context, String time, String id, String type) {
         Intent starter = new Intent(context, PersonalSignPayAct.class);
-        starter.putExtra(DATA,time);
-        starter.putExtra(TYPE,type);
+        starter.putExtra(DATA, time);
+        starter.putExtra(TYPE, type);
         context.startActivity(starter);
     }
 
@@ -146,11 +152,11 @@ public class PersonalSignPayAct extends BaseSignPayActivity {
             showErrorMsg("请选择租期");
             return;
         }
-        if(!TextUtils.isEmpty(pay_type)){
-            int type=Integer.parseInt(pay_type);
-            super.startPay(payWay, type,mRoomId, rent.getFirstPay(), mLease, mPeriods, rent.getFirstPay(),
+        if (!TextUtils.isEmpty(pay_type)) {
+            int type = Integer.parseInt(pay_type);
+            super.startPay(payWay, type, mRoomId, rent.getFirstPay(), mLease, mPeriods, rent.getFirstPay(),
                     rent.getMonthlyPay());
-        }else {
+        } else {
             super.startPay(payWay, mRoomId, rent.getFirstPay(), mLease, mPeriods, rent.getFirstPay(),
                     rent.getMonthlyPay());
         }
@@ -178,10 +184,10 @@ public class PersonalSignPayAct extends BaseSignPayActivity {
                         //重新计算禁用
                         disablePeriods(mLease);
                         //重新选择分期
-                        if(mLease>=6){
+                        if (mLease >= 6) {
                             mPeriods = 2;
-                        }else {
-                            mPeriods =1;
+                        } else {
+                            mPeriods = 1;
                         }
                         selectPeriods(mPeriods);
                         //计算租金
@@ -230,7 +236,7 @@ public class PersonalSignPayAct extends BaseSignPayActivity {
                 mRoomId = room.getId();
                 mSignedId = room.getSignedId();
                 mBinding.setRoom(room);
-
+                monthPrice = room.getRo_long_money();
                 //禁用不可选的期数
                 disablePeriods(mLease);
                 //默认选择期数(押一付三)
@@ -239,7 +245,7 @@ public class PersonalSignPayAct extends BaseSignPayActivity {
                 //加载房租
                 calculateRent(room.getId(), mLease, mPeriods, false);
                 mBinding.startDate.setText(room.getSd_starttime());
-                if(!TextUtils.isEmpty(matainTime)){
+                if (!TextUtils.isEmpty(matainTime)) {
                     mBinding.startDate.setText(matainTime);
                 }
             }
@@ -256,10 +262,18 @@ public class PersonalSignPayAct extends BaseSignPayActivity {
     @SuppressWarnings("unchecked")
     private void calculateRent(String roomId, int lease, int periods, boolean showIndicator) {
         if (showIndicator) showLoadIndicator();
-        call = AppApi.get().calculateRent(LoginStatus.getToken(), roomId, lease, periods);
+        if(pay_type!=null){
+
+        }else {
+            pay_type="";
+        }
+        call = AppApi.get().calculateRent(LoginStatus.getToken(), roomId, lease,pay_type, periods);
         call.enqueue(new RequestCallback<Rent>() {
             @Override
             protected void onSuccess(Rent rent) {
+//                if(pay_type.equals("4")){
+//                    rent.setFirstPay(lease*NumUtils.getDouble(monthPrice)+"");
+//                }
                 mBinding.setRent(rent);
                 dismissLoadIndicator();
             }
@@ -275,9 +289,9 @@ public class PersonalSignPayAct extends BaseSignPayActivity {
             @Override
             public void onSuccess(Object data, int i) {
                 if (data instanceof PriceBean) {
-                    PriceBean bean = (PriceBean) data;
+                    priceBean = (PriceBean) data;
                     price = mBinding.getRoot().findViewById(R.id.price);
-                    price.setText(bean.getO().getRo_long_money() + "元/月");
+                    price.setText(priceBean.getO().getRo_long_money() + "元/月");
                 }
 
             }

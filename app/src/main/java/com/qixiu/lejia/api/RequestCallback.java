@@ -35,7 +35,7 @@ public abstract class RequestCallback<T> implements Callback<BaseResponse<T>> {
     @Override
     public final void onResponse(Call<BaseResponse<T>> call, Response<BaseResponse<T>> response) {
         Gson gson = new Gson();
-        Log.e("data", gson.toJson(response));
+        Log.e("data",response.body()!=null? gson.toJson(response.body()):"body_error");
         if (!call.isCanceled()) {
             onComplete();
             if (response.isSuccessful()) {

@@ -250,6 +250,7 @@ public interface ApiService {
     Call<BaseResponse<Rent>> calculateRent(@Field("uid") String uid,
                                            @Field("ro_id") String roomId,
                                            @Field("time") int lease,
+                                           @Field("sign_type") String sign_type,
                                            @Field("paytype") int periods);
 
     /**
@@ -307,7 +308,7 @@ public interface ApiService {
      * @param uid        uid
      * @param payWay     支付方式1是微信,2是支付宝
      * @param money      支付金额
-     * @param type       缴费类型1是房租,2是水费,3是电费
+     * @param type       缴费类型1是房租,2是水费,3是电费4是续租
      * @param roomId     用户缴费的房间id
      * @param lease      租期,签约时传入
      * @param periods    付款方式,1是押一付一,2是押一付三,3是半年付,4是全年付

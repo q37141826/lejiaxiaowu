@@ -50,8 +50,8 @@ android {
         applicationId "com.qixiu.lejia"
         minSdkVersion 21
         targetSdkVersion 23
-        versionCode 180
-        versionName "1.8"
+        versionCode 190
+        versionName "1.9"
         flavorDimensions "versionCode"
         resConfigs "de", "zh"
 

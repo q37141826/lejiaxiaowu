@@ -25,6 +25,9 @@ public class Room {
     @SerializedName("ro_short_money")
     private String rent;
 
+    @SerializedName("ro_long_money")
+    private String ro_long_money;
+
     @SerializedName("ap_log")
     private String image;
 
@@ -33,6 +36,14 @@ public class Room {
 
     @SerializedName("sd_starttime")
     private String sd_starttime;
+
+    public String getRo_long_money() {
+        return ro_long_money;
+    }
+
+    public void setRo_long_money(String ro_long_money) {
+        this.ro_long_money = ro_long_money;
+    }
 
     public String getSd_starttime() {
         return sd_starttime;

@@ -76,7 +76,7 @@ public class PayUtils implements AliPay.AliPayResultCallback, Observer {
      * 支付
      *
      * @param payWay     支付方式1是微信,2是支付宝
-     * @param payScene   缴费类型1是房租,2是水费,3是电费
+     * @param payScene   缴费类型1是房租,2是水费,3是电费4是续租
      * @param money      支付金额
      * @param roomId     用户缴费的房间id
      * @param lease      租期,签约时传入
