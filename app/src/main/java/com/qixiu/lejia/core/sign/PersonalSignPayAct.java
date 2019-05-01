@@ -91,6 +91,9 @@ public class PersonalSignPayAct extends BaseSignPayActivity {
         setContentView(mBinding.getRoot());
         //如果是续租，那么标记一个type
         pay_type = getIntent().getStringExtra(TYPE);
+        if (pay_type == null) {
+            pay_type = "";
+        }
         //租期开始时间
         mBinding.startDate.setText(DateFormat.format(DatetimeConstants.YTD_CN, new Date()));
         matainTime = getIntent().getStringExtra(DATA);
@@ -229,7 +232,7 @@ public class PersonalSignPayAct extends BaseSignPayActivity {
      */
     @SuppressWarnings("unchecked")
     private void loadRoomInfo() {
-        call = AppApi.get().personalSignFifthStep(LoginStatus.getToken());
+        call = AppApi.get().personalSignFifthStep(LoginStatus.getToken(), pay_type);
         call.enqueue(new RequestCallback<Room>() {
             @Override
             protected void onSuccess(Room room) {
@@ -262,12 +265,7 @@ public class PersonalSignPayAct extends BaseSignPayActivity {
     @SuppressWarnings("unchecked")
     private void calculateRent(String roomId, int lease, int periods, boolean showIndicator) {
         if (showIndicator) showLoadIndicator();
-        if(pay_type!=null){
-
-        }else {
-            pay_type="";
-        }
-        call = AppApi.get().calculateRent(LoginStatus.getToken(), roomId, lease,pay_type, periods);
+        call = AppApi.get().calculateRent(LoginStatus.getToken(), roomId, lease, pay_type, periods);
         call.enqueue(new RequestCallback<Rent>() {
             @Override
             protected void onSuccess(Rent rent) {

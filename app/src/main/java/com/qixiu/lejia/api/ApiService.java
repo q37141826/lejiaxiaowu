@@ -228,7 +228,9 @@ public interface ApiService {
      */
     @POST("Home/Sign/userpay")
     @FormUrlEncoded
-    Call<BaseResponse<Room>> personalSignFifthStep(@Field("uid") String uid);
+    Call<BaseResponse<Room>> personalSignFifthStep(@Field("uid") String uid,
+                                                   @Field("sign_type") String sign_type
+    );
 
     /**
      * 企业用户第五步
@@ -240,10 +242,11 @@ public interface ApiService {
     /**
      * 计算房租
      *
-     * @param uid     uid
-     * @param roomId  房间id
-     * @param lease   租期
-     * @param periods 期数
+     * @param uid       uid
+     * @param roomId    房间id
+     * @param lease     租期
+     * @param sign_type sign_type=4表示续租
+     * @param periods   期数
      */
     @POST("Home/Sign/getmoney")
     @FormUrlEncoded
@@ -355,16 +358,16 @@ public interface ApiService {
     @POST("Home/Elemeter/elemeter_charge")
     @FormUrlEncoded
     Call<BaseResponse<String>> aliPayElectric(@Field("user_id") String user_id,
-                                                @Field("pay_money") String pay_money,
-                                                @Field("equipment_uuid") String equipment_uuid,
-                                                @Field("store_id") String store_id,
-                                                @Field("room_id") String room_id,
-                                                @Field("pay_method") int pay_method);
+                                              @Field("pay_money") String pay_money,
+                                              @Field("equipment_uuid") String equipment_uuid,
+                                              @Field("store_id") String store_id,
+                                              @Field("room_id") String room_id,
+                                              @Field("pay_method") int pay_method);
 
 
     /*
-    * 微信充值电费
-    * */
+     * 微信充值电费
+     * */
 
     @POST("Home/Elemeter/elemeter_charge")
     @FormUrlEncoded
