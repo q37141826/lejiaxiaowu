@@ -106,7 +106,7 @@ public class PersonalSignPayAct extends BaseSignPayActivity {
 
         //缴费明细点击事件
         mBinding.payDetails.setOnClickListener(v -> {
-            PayDetailsDialog.newInstance(0, mRoomId, mLease, mPeriods)
+            PayDetailsDialog.newInstance(0, mRoomId, mLease, mPeriods,pay_type)
                     .show(getSupportFragmentManager());
         });
 

@@ -52,7 +52,7 @@ public class CorporateSignPayAct extends BaseSignPayActivity {
         //缴费明细点击
         mBinding.payDetails.setOnClickListener(v -> {
             if (mRoomId != null) {
-                PayDetailsDialog.newInstance(1, mRoomId, -1, -1)
+                PayDetailsDialog.newInstance(1, mRoomId, -1, -1,"")//todo 这里在那时填写为1，然后看看测试怎么测试的
                         .show(getSupportFragmentManager());
             }
         });

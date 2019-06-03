@@ -264,7 +264,10 @@ public interface ApiService {
     Call<BaseResponse<List<PayDetails>>> personalPayDetails(@Field("uid") String uid,
                                                             @Field("ro_id") String roomId,
                                                             @Field("time") int lease,
-                                                            @Field("paytype") int periods);
+                                                            @Field("paytype") int periods,
+                                                            @Field("sign_type")String sign_type)
+
+    ;
 
     /**
      * 企业用户缴费明细

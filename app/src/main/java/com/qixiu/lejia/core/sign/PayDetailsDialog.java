@@ -44,6 +44,7 @@ public class PayDetailsDialog extends BottomSheetDialogFragment {
     private static final String KEY_ROOM_ID = "ROOM_ID";
     private static final String KEY_LEASE = "LEASE";
     private static final String KEY_PERIODS = "PERIODS";
+    private static final String SIGN_TYPE = "SIGN_TYPE";
 
     private MultiStateLayout multiStateLayout;
     private RecyclerView recyclerView;
@@ -53,12 +54,13 @@ public class PayDetailsDialog extends BottomSheetDialogFragment {
     /**
      * @param type 1-企业  0-普通员工
      */
-    public static PayDetailsDialog newInstance(int type, String roomId, int lease, int periods) {
+    public static PayDetailsDialog newInstance(int type, String roomId, int lease, int periods,String sign_type) {
         Bundle args = new Bundle();
         args.putInt(KEY_TYPE, type);
         args.putString(KEY_ROOM_ID, roomId);
         args.putInt(KEY_LEASE, lease);
         args.putInt(KEY_PERIODS, periods);
+        args.putString(SIGN_TYPE, sign_type);
         PayDetailsDialog fragment = new PayDetailsDialog();
         fragment.setArguments(args);
         return fragment;
@@ -102,7 +104,8 @@ public class PayDetailsDialog extends BottomSheetDialogFragment {
             String roomId = args.getString(KEY_ROOM_ID);
             int lease = args.getInt(KEY_LEASE);
             int periods = args.getInt(KEY_PERIODS);
-            mCall = AppApi.get().personalPayDetails(LoginStatus.getToken(), roomId, lease, periods);
+            String signType=args.getString(SIGN_TYPE);
+            mCall = AppApi.get().personalPayDetails(LoginStatus.getToken(), roomId, lease, periods,signType);
         }else {
             mCall = AppApi.get().corporatePayDetails(LoginStatus.getToken());
         }
